@@ -177,9 +177,8 @@ namespace ConsoleApp1
                 {
                     Console.WriteLine("oteviraji se dvere:" + Doors[i].isOpening);
                     Console.WriteLine("zaviraji se dvere:" + Doors[i].isClosing);
-                    Doors[i].Changed = true;
                     
-                    if(Doors[i].isOpening == false)
+                    if(Doors[i].isOpening == false && !Doors[i].Changed)
                     {
                         Doors[i].GetNearestWall(Walls);
                     }

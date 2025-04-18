@@ -130,7 +130,8 @@ namespace ConsoleApp1
         {
             if(wall.position.X == position.X && wall.position.Z == position.Z && !isOpened)
             {
-                this.isOpening = true;
+                this.isOpening = true; 
+                this.Changed = true;
                 return true;
             }
             return false;

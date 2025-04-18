@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EjG69jdnM+A=",
+  "dgSpecHash": "1iHUKVYakTs=",
   "success": true,
-  "projectFilePath": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\FinalGame\\Wafflestein\\src\\ConsoleApp1\\ConsoleApp1.csproj",
+  "projectFilePath": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\ZPG-Wafflestein\\Wafflestein\\src\\ConsoleApp1\\ConsoleApp1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pavel\\.nuget\\packages\\freetypesharp\\3.0.0\\freetypesharp.3.0.0.nupkg.sha512",
     "C:\\Users\\pavel\\.nuget\\packages\\opentk\\4.9.3\\opentk.4.9.3.nupkg.sha512",
