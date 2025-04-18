@@ -1,0 +1,205 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\FinalGame\\Wafflestein\\src\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\pavel\\onedrive\\dokumenty\\zpg\\finalgame\\wafflestein\\src\\consoleapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\pavel\\onedrive\\dokumenty\\zpg\\finalgame\\wafflestein\\src\\consoleapp1\\cube.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\cube.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\pavel\\onedrive\\dokumenty\\zpg\\finalgame\\wafflestein\\src\\consoleapp1\\shaders\\basic.frag||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\shaders\\basic.frag||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\pavel\\onedrive\\dokumenty\\zpg\\finalgame\\wafflestein\\src\\consoleapp1\\objects\\flashlight.obj||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\objects\\flashlight.obj||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\pavel\\onedrive\\dokumenty\\zpg\\finalgame\\wafflestein\\src\\consoleapp1\\objects\\sphere.obj||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\objects\\sphere.obj||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\pavel\\onedrive\\dokumenty\\zpg\\finalgame\\wafflestein\\src\\consoleapp1\\cameras\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\cameras\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\pavel\\onedrive\\dokumenty\\zpg\\finalgame\\wafflestein\\src\\consoleapp1\\objects\\untitled.obj||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\objects\\untitled.obj||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\pavel\\onedrive\\dokumenty\\zpg\\finalgame\\wafflestein\\src\\consoleapp1\\model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\pavel\\onedrive\\dokumenty\\zpg\\finalgame\\wafflestein\\src\\consoleapp1\\object.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\object.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\pavel\\onedrive\\dokumenty\\zpg\\finalgame\\wafflestein\\src\\consoleapp1\\maps\\map2.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\maps\\map2.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\pavel\\onedrive\\dokumenty\\zpg\\finalgame\\wafflestein\\src\\consoleapp1\\light.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\light.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Cube.cs",
+              "DocumentMoniker": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\FinalGame\\Wafflestein\\src\\ConsoleApp1\\Cube.cs",
+              "RelativeDocumentMoniker": "ConsoleApp1\\Cube.cs",
+              "ToolTip": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\FinalGame\\Wafflestein\\src\\ConsoleApp1\\Cube.cs",
+              "RelativeToolTip": "ConsoleApp1\\Cube.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T13:49:02.82Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "untitled.obj",
+              "DocumentMoniker": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\FinalGame\\Wafflestein\\src\\ConsoleApp1\\Objects\\untitled.obj",
+              "RelativeDocumentMoniker": "ConsoleApp1\\Objects\\untitled.obj",
+              "ToolTip": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\FinalGame\\Wafflestein\\src\\ConsoleApp1\\Objects\\untitled.obj",
+              "RelativeToolTip": "ConsoleApp1\\Objects\\untitled.obj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|",
+              "WhenOpened": "2025-04-07T15:55:37.166Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "sphere.obj",
+              "DocumentMoniker": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\FinalGame\\Wafflestein\\src\\ConsoleApp1\\Objects\\sphere.obj",
+              "RelativeDocumentMoniker": "ConsoleApp1\\Objects\\sphere.obj",
+              "ToolTip": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\FinalGame\\Wafflestein\\src\\ConsoleApp1\\Objects\\sphere.obj",
+              "RelativeToolTip": "ConsoleApp1\\Objects\\sphere.obj",
+              "ViewState": "AgIAANABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|",
+              "WhenOpened": "2025-04-07T15:55:28.738Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Flashlight.obj",
+              "DocumentMoniker": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\FinalGame\\Wafflestein\\src\\ConsoleApp1\\Objects\\Flashlight.obj",
+              "RelativeDocumentMoniker": "ConsoleApp1\\Objects\\Flashlight.obj",
+              "ToolTip": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\FinalGame\\Wafflestein\\src\\ConsoleApp1\\Objects\\Flashlight.obj",
+              "RelativeToolTip": "ConsoleApp1\\Objects\\Flashlight.obj",
+              "ViewState": "AgIAAHooAAAAAAAAAAAAAJMoAAAQAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|",
+              "WhenOpened": "2025-04-07T15:47:48.73Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Object.cs",
+              "DocumentMoniker": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\FinalGame\\Wafflestein\\src\\ConsoleApp1\\Object.cs",
+              "RelativeDocumentMoniker": "ConsoleApp1\\Object.cs",
+              "ToolTip": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\FinalGame\\Wafflestein\\src\\ConsoleApp1\\Object.cs",
+              "RelativeToolTip": "ConsoleApp1\\Object.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAIwC4AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-07T15:21:10.894Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "map2.txt",
+              "DocumentMoniker": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\FinalGame\\Wafflestein\\src\\ConsoleApp1\\Maps\\map2.txt",
+              "RelativeDocumentMoniker": "ConsoleApp1\\Maps\\map2.txt",
+              "ToolTip": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\FinalGame\\Wafflestein\\src\\ConsoleApp1\\Maps\\map2.txt",
+              "RelativeToolTip": "ConsoleApp1\\Maps\\map2.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-04-06T13:49:18.463Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Light.cs",
+              "DocumentMoniker": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\FinalGame\\Wafflestein\\src\\ConsoleApp1\\Light.cs",
+              "RelativeDocumentMoniker": "ConsoleApp1\\Light.cs",
+              "ToolTip": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\FinalGame\\Wafflestein\\src\\ConsoleApp1\\Light.cs",
+              "RelativeToolTip": "ConsoleApp1\\Light.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-06T12:53:21.801Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Model.cs",
+              "DocumentMoniker": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\FinalGame\\Wafflestein\\src\\ConsoleApp1\\Model.cs",
+              "RelativeDocumentMoniker": "ConsoleApp1\\Model.cs",
+              "ToolTip": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\FinalGame\\Wafflestein\\src\\ConsoleApp1\\Model.cs",
+              "RelativeToolTip": "ConsoleApp1\\Model.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T15:08:07.553Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Camera.cs",
+              "DocumentMoniker": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\FinalGame\\Wafflestein\\src\\ConsoleApp1\\Cameras\\Camera.cs",
+              "RelativeDocumentMoniker": "ConsoleApp1\\Cameras\\Camera.cs",
+              "ToolTip": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\FinalGame\\Wafflestein\\src\\ConsoleApp1\\Cameras\\Camera.cs",
+              "RelativeToolTip": "ConsoleApp1\\Cameras\\Camera.cs",
+              "ViewState": "AgIAAJgAAAAAAAAAAAA9wHYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T12:18:22.347Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\FinalGame\\Wafflestein\\src\\ConsoleApp1\\Program.cs",
+              "RelativeDocumentMoniker": "ConsoleApp1\\Program.cs",
+              "ToolTip": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\FinalGame\\Wafflestein\\src\\ConsoleApp1\\Program.cs",
+              "RelativeToolTip": "ConsoleApp1\\Program.cs",
+              "ViewState": "AgIAAJwAAAAAAAAAAABFwK4AAADYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T12:18:16.418Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Basic.frag",
+              "DocumentMoniker": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\FinalGame\\Wafflestein\\src\\ConsoleApp1\\Shaders\\Basic.frag",
+              "RelativeDocumentMoniker": "ConsoleApp1\\Shaders\\Basic.frag",
+              "ToolTip": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\FinalGame\\Wafflestein\\src\\ConsoleApp1\\Shaders\\Basic.frag",
+              "RelativeToolTip": "ConsoleApp1\\Shaders\\Basic.frag",
+              "ViewState": "AgIAAA8AAAAAAAAAAADwvyoAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-06T12:53:07.284Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
