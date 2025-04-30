@@ -119,6 +119,9 @@ namespace ConsoleApp1
                 case Matrix4 v:
                     GL.UniformMatrix4(location, false, ref v);
                     break;
+                case bool v:
+                    GL.Uniform1(location, v ? 1 : 0);
+                    break;
                 default:
                     throw new NotSupportedException($"Uniform is not supported");
             }

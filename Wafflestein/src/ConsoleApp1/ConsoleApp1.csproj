@@ -19,6 +19,9 @@
     <None Update="Maps\map2.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Maps\map3.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Objects\erato.obj">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

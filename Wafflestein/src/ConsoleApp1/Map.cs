@@ -46,7 +46,7 @@ namespace ConsoleApp1
                     {
                         line[j] = 3;
                     }
-                    else if (ascii >= 62 && ascii <= 71) // dveře (zeď)
+                    else if (ascii >= 65 && ascii <= 70) // dveře (zeď)
                     {
                         line[j] = 4;
                     }
@@ -61,6 +61,18 @@ namespace ConsoleApp1
                     else if (ascii >= 84 && ascii <= 90) // itemy pro sběr (volný prostor)
                     {
                         line[j] = 7;
+                    }
+                    else if (ascii == 71) // tajné dveře (zeď)
+                    {
+                        line[j] = 8;
+                    }
+                    else if (ascii == 63) // teleport
+                    {
+                        line[j] = 9;
+                    }
+                    else if (ascii == 61) // propad
+                    {
+                        line[j] = 10;
                     }
                 }
                 grid[i - 1] = line;

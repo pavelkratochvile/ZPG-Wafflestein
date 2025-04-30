@@ -15,16 +15,14 @@ using System.Diagnostics;
 using ConsoleApp1.Cameras;
 using FreeTypeSharp;
 using System.Text.Json.Serialization;
+using ConsoleApp1.MapObjects;
 
 namespace ConsoleApp1
 {
     public class MyGameWindow : GameWindow
     {
-        private List<ObjectC> Objects = new List<ObjectC>();
-        private List<Block> Walls = new List<Block>();
-        private List<Block> Doors = new List<Block>();
-        private List<Block> DoorsHitboxes = new List<Block>();
-        private List<Flat> Floor = new List<Flat>();
+        public List<Floor> Floors = new List<Floor>();
+        public Floor curentFloor;
         Light light = new Light(new Vector3(10, 10, 10), false);
 
         private float speed = 5f;
@@ -32,9 +30,9 @@ namespace ConsoleApp1
         private double[] movingVector = new double[] { 0, 0 };
         private string mapFilename;
         private ViewPort Viewport { get; set; }
+        private ViewPort MinimapViewport { get; set; }
         private double deltaTime = 0.0;
         private Camera Camera { get; set; }
-        private Map Map = new Map();
 
         private Stopwatch stopwatch = new Stopwatch();
         private int frameCount = 0;
@@ -43,9 +41,9 @@ namespace ConsoleApp1
 
 
 
-        public MyGameWindow(GameWindowSettings gameWindowSettings, NativeWindowSettings nativeWindowSettings, string mapFilename) : base(gameWindowSettings, nativeWindowSettings)
-        { 
-            this.mapFilename = mapFilename;
+        public MyGameWindow(GameWindowSettings gameWindowSettings, NativeWindowSettings nativeWindowSettings, string[] args) : base(gameWindowSettings, nativeWindowSettings)
+        {
+            LoadMaps(args);
             Viewport = new ViewPort()
             {
                 Top = 0,
@@ -70,15 +68,24 @@ namespace ConsoleApp1
             float deltaTime = (float)args.Time;
             
             CountFPS();
+            this.Title = Floors.Count.ToString() ;
             MakeCurrent();
+            Console.WriteLine(Camera.hasTeleported.ToString());
             GetMovingVector();
             turnLight();
             MakeMove(deltaTime);
-            CheckDoors(deltaTime);
+            CheckDoors(deltaTime, Floors[0]);
+            CheckSecretDoors(deltaTime, Floors[0]);
+            CheckTeleports(Floors[0]);
             IsExiting();
             GL.ClearColor(Color.Black);
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
-            DrawMap();
+            
+            for (int i = 0; i < Floors.Count; i++)
+            {
+                DrawMap(Floors[i]);
+            }
+            
             this.SwapBuffers();
         }
 
@@ -99,10 +106,14 @@ namespace ConsoleApp1
             GL.ClearDepth(1.0f);
             
             stopwatch.Start();
-
-            Map.map = Map.MapTranformation(mapFilename);
-            Camera.map = Map.map;
-            GenerateMap(shader);
+            
+            Camera.map = Floors[0].Map.map;
+            
+            for(int i = 0; i < Floors.Count; i++)
+            {
+                GenerateMap(shader, Floors[i]);
+            }
+            curentFloor = Floors[0];
         }
 
         protected override void OnMouseMove(MouseMoveEventArgs e)
@@ -160,51 +171,94 @@ namespace ConsoleApp1
             float dx = (float)(movingVector[0]);
             float dy = (float)(movingVector[1]);
 
-            if (KeyboardState.IsKeyDown(Keys.A)) {Camera.Move(movement * dx, 0, Walls, DoorsHitboxes);}
-            if (KeyboardState.IsKeyDown(Keys.D)) {Camera.Move(movement * dx, 0, Walls, DoorsHitboxes);}
-            if (KeyboardState.IsKeyDown(Keys.W)) { Camera.Move(0, movement * dy, Walls, DoorsHitboxes);}
-            if (KeyboardState.IsKeyDown(Keys.S)) {Camera.Move(0, movement * dy, Walls, DoorsHitboxes);}
+            if (KeyboardState.IsKeyDown(Keys.A)) {Camera.Move(movement * dx, 0, curentFloor.Walls, curentFloor.DoorsHitboxes);}
+            if (KeyboardState.IsKeyDown(Keys.D)) {Camera.Move(movement * dx, 0, curentFloor.Walls, curentFloor.DoorsHitboxes);}
+            if (KeyboardState.IsKeyDown(Keys.W)) {Camera.Move(0, movement * dy, curentFloor.Walls, curentFloor.DoorsHitboxes);}
+            if (KeyboardState.IsKeyDown(Keys.S)) {Camera.Move(0, movement * dy, curentFloor.Walls, curentFloor.DoorsHitboxes);}
         }
 
-        private void CheckDoors(float deltaTime)
+        private void CheckDoors(float deltaTime, Floor floor)
         {
             float radius = 3f;
           
-            for (int i = 0; i < Doors.Count; i++)
+            for (int i = 0; i < floor.Doors.Count; i++)
             {
-                float distance = (float)Math.Sqrt((-Camera.x - Doors[i].defaultposition.X) * (-Camera.x - Doors[i].defaultposition.X) + (-Camera.z - Doors[i].defaultposition.Z) * (-Camera.z - Doors[i].defaultposition.Z));
+                float distance = (float)Math.Sqrt((-Camera.x - floor.Doors[i].defaultposition.X) * (-Camera.x - floor.Doors[i].defaultposition.X) + (-Camera.z - floor.Doors[i].defaultposition.Z) * (-Camera.z - floor.Doors[i].defaultposition.Z));
                 if (distance < radius && KeyboardState.IsKeyDown(Keys.E))
                 {
-                    Console.WriteLine("oteviraji se dvere:" + Doors[i].isOpening);
-                    Console.WriteLine("zaviraji se dvere:" + Doors[i].isClosing);
+                    Console.WriteLine("oteviraji se dvere:" + floor.Doors[i].isOpening);
+                    Console.WriteLine("zaviraji se dvere:" + floor.Doors[i].isClosing);
                     
-                    if(Doors[i].isOpening == false && !Doors[i].Changed)
+                    if(floor.Doors[i].isOpening == false && !floor.Doors[i].Changed)
                     {
-                        Doors[i].GetNearestWall(Walls);
+                        floor.Doors[i].GetNearestWall(floor.Walls);
                     }
                 }
-                if (Doors[i].isOpening)
+                if (floor.Doors[i].isOpening)
                 {
-                    DoorMove(Doors[i], deltaTime);
+                    DoorMove(floor.Doors[i], deltaTime);
                 }
             }
 
 
-            for (int i = 0; i < Doors.Count; i++)
+            for (int i = 0; i < floor.Doors.Count; i++)
             {
-                float distance = (float)Math.Sqrt((-Camera.x - Doors[i].defaultposition.X) * (-Camera.x - Doors[i].defaultposition.X) + (-Camera.z - Doors[i].defaultposition.Z) * (-Camera.z - Doors[i].defaultposition.Z));
-                if (distance < radius && distance > Math.Sqrt(2 * Math.Pow(Doors[i].TILE_SIZE / 2, 2)) && KeyboardState.IsKeyDown(Keys.Q) && Doors[i].Changed == true)
+                float distance = (float)Math.Sqrt((-Camera.x - floor.Doors[i].defaultposition.X) * (-Camera.x - floor.Doors[i].defaultposition.X) + (-Camera.z - floor.Doors[i].defaultposition.Z) * (-Camera.z - floor.Doors[i].defaultposition.Z));
+                if (distance < radius && distance > Math.Sqrt(2 * Math.Pow(floor.Doors[i].TILE_SIZE / 2, 2)) && KeyboardState.IsKeyDown(Keys.Q) && floor.Doors[i].Changed == true)
                 {
-                    Doors[i].Changed = false;
-                    if (Doors[i].isClosing == false)
+                    floor.Doors[i].Changed = false;
+                    if (floor.Doors[i].isClosing == false)
                     {
-                        Doors[i].targetPosition = Doors[i].defaultposition;
-                        Doors[i].isClosing = true;
+                        floor.Doors[i].targetPosition = floor.Doors[i].defaultposition;
+                        floor.Doors[i].isClosing = true;
                     }
                 }
-                if (Doors[i].isClosing)
+                if (floor.Doors[i].isClosing)
                 {
-                    DoorMove(Doors[i], deltaTime);
+                    DoorMove(floor.Doors[i], deltaTime);
+                }
+            }
+        }
+
+        private void CheckSecretDoors(float deltaTime, Floor floor)
+        {
+            float radius = 3f;
+
+            for (int i = 0; i < floor.secretDoors.Count; i++)
+            {
+                float distance = (float)Math.Sqrt((-Camera.x - floor.secretDoors[i].defaultposition.X) * (-Camera.x - floor.secretDoors[i].defaultposition.X) + (-Camera.z - floor.secretDoors[i].defaultposition.Z) * (-Camera.z - floor.secretDoors[i].defaultposition.Z));
+                if (distance < radius && KeyboardState.IsKeyDown(Keys.E))
+                {
+                    Console.WriteLine("oteviraji se dvere:" + floor.Doors[i].isOpening);
+                    Console.WriteLine("zaviraji se dvere:" + floor.Doors[i].isClosing);
+
+                    if (floor.secretDoors[i].isOpening == false && !floor.secretDoors[i].Changed)
+                    {
+                        floor.secretDoors[i].GetNearestWall(floor.Walls);
+                    }
+                }
+                if (floor.secretDoors[i].isOpening)
+                {
+                    DoorMove(floor.secretDoors[i], deltaTime);
+                }
+            }
+
+
+            for (int i = 0; i < floor.secretDoors.Count; i++)
+            {
+                float distance = (float)Math.Sqrt((-Camera.x - floor.secretDoors[i].defaultposition.X) * (-Camera.x - floor.secretDoors[i].defaultposition.X) + (-Camera.z - floor.secretDoors[i].defaultposition.Z) * (-Camera.z - floor.secretDoors[i].defaultposition.Z));
+                if (distance < radius && distance > Math.Sqrt(2 * Math.Pow(floor.secretDoors[i].TILE_SIZE / 2, 2)) && KeyboardState.IsKeyDown(Keys.Q) && floor.secretDoors[i].Changed == true)
+                {
+                    floor.secretDoors[i].Changed = false;
+                    if (floor.secretDoors[i].isClosing == false)
+                    {
+                        floor.secretDoors[i].targetPosition = floor.secretDoors[i].defaultposition;
+                        floor.secretDoors[i].isClosing = true;
+                    }
+                }
+                if (floor.secretDoors[i].isClosing)
+                {
+                    DoorMove(floor.secretDoors[i], deltaTime);
                 }
             }
         }
@@ -215,8 +269,6 @@ namespace ConsoleApp1
 
             Vector3 direction = Vector3.Normalize(doors.targetPosition - doors.position);
             Vector3 step = direction * movement;
-
-            // Zkontroluj, jestli jsme nepřekročili cílovou pozici:
             if (Vector3.Distance(doors.position, doors.targetPosition) <= movement)
             {
                 doors.position = doors.targetPosition;
@@ -228,6 +280,64 @@ namespace ConsoleApp1
                 doors.position += step;
                 Console.WriteLine(doors.position);
             }
+        }
+        public void CheckTeleports(Floor floor)
+        {
+            float playerPosX = -Camera.x;
+            float playerPosZ = -Camera.z;
+            bool isOutside = true;
+
+            for (int i = 0; i < floor.Teleports.Count; i++)
+            {
+                if (isColiding(playerPosX, playerPosZ, floor.Teleports[i]))
+                {
+                    Camera.beforeTP.Start();
+                    isOutside = false;
+                    if (this.Camera.sw.Elapsed.TotalSeconds > 4 && this.Camera.beforeTP.Elapsed.TotalSeconds > 2)
+                    {
+                        Camera.beforeTP.Reset();
+                        Camera.afterTP.Start();
+                        Camera.hasTeleported = true;
+                        Camera.sw.Restart();
+
+                        
+                        Random random = new Random();
+                        int randomIndex = random.Next(0, floor.Teleports.Count);
+                        while(randomIndex == i)
+                        {
+                            randomIndex = random.Next(0, floor.Teleports.Count);
+                        }
+
+                        this.Camera.x = -floor.Teleports[randomIndex].position.X;
+                        this.Camera.z = -floor.Teleports[randomIndex].position.Z;
+                    }
+                }
+            }
+            if(Camera.afterTP.Elapsed.TotalSeconds > 2)
+            {
+                Camera.afterTP.Reset();
+                Camera.beforeTP.Start();
+                Camera.hasTeleported = false;
+            }
+
+            if (isOutside || Camera.hasTeleported == true)
+            {
+                Camera.beforeTP.Reset();
+            }
+        }
+
+        public bool isColiding(float playerPosX, float playerPosZ, Teleport teleport)
+        {
+            float max_x = (float)teleport.position.X + teleport.TILE_SIZE / 2;
+            float min_x = (float)teleport.position.X - teleport.TILE_SIZE / 2;
+            float max_z = (float)teleport.position.Z + teleport.TILE_SIZE / 2;
+            float min_z = (float)teleport.position.Z - teleport.TILE_SIZE / 2;
+
+            if (playerPosX < max_x && playerPosX > min_x && playerPosZ < max_z && playerPosZ > min_z)
+            {
+                return true;
+            }
+            return false;
         }
 
         private void GetMovingVector()
@@ -251,57 +361,79 @@ namespace ConsoleApp1
             movingVector[1] = y;
         }
 
-        public void DrawMap()
+        public void DrawMap(Floor floor)
         {
-            Walls.Sort((a, b) => (b.position.Z).CompareTo(a.position.Z));
-            DoorsHitboxes.Sort((a, b) => (b.position.Z).CompareTo(a.position.Z));
-            Floor.Sort((a, b) => (b.position.Z).CompareTo(a.position.Z));
+            floor.Walls.Sort((a, b) => (b.position.Z).CompareTo(a.position.Z));
+            floor.DoorsHitboxes.Sort((a, b) => (b.position.Z).CompareTo(a.position.Z));
+            floor.Ground.Sort((a, b) => (b.position.Z).CompareTo(a.position.Z));
+            float beforeTP = (float)Camera.beforeTP.Elapsed.TotalMilliseconds;
+            float afterTP = (float)Camera.afterTP.Elapsed.TotalMilliseconds;
 
-            foreach (Block block in Walls)
+            foreach (Block block in floor.Walls)
             {
-                block.Draw(Camera, light);
+                block.Draw(Camera, light, Camera.hasTeleported, beforeTP, afterTP);
             }
-            foreach (Block door in DoorsHitboxes)
+            foreach (Block door in floor.DoorsHitboxes)
             {
-                door.Draw(Camera,light);
+                door.Draw(Camera,light, Camera.hasTeleported, beforeTP, afterTP);
             }
-            foreach (Flat flat in Floor)
+            foreach (Flat flat in floor.Ground)
             {
-                flat.Draw(Camera, light);
+                flat.Draw(Camera, light, Camera.hasTeleported, beforeTP, afterTP);
             }
-            foreach (ObjectC obj in Objects)
+            foreach (ObjectC obj in floor.Objects)
             {
-                obj.Draw(Camera, light);
+                obj.Draw(Camera, light, Camera.hasTeleported, beforeTP, afterTP);
+            }
+            foreach (Teleport tp in floor.Teleports)
+            {
+                tp.Draw(Camera, light, Camera.hasTeleported, beforeTP, afterTP);
             }
         }
-        public void GenerateMap(Shader shader)
+        public void GenerateMap(Shader shader, Floor floor)
         {
             int TILE_SIZE = 2;
 
-            for (int i = 0; i < Map.map.Length; i++)
+            for (int i = 0; i < floor.Map.map.Length; i++)
             {
-                for (int j = 0; j < Map.map[0].Length; j++)
+                for (int j = 0; j < floor.Map.map[0].Length; j++)
                 {
                     int posX = (+1) * i * TILE_SIZE;
                     int posZ = (-1) * j * TILE_SIZE;
 
-                    Floor.Add(MakeFlat(posX, posZ, shader));
 
-                    if (Map.map[i][j] == 1)
+                    if (floor.Map.map[i][j] != 10)
                     {
-                        Walls.Add(MakeBlock(posX, posZ, shader));
+                        floor.Ground.Add(MakeFlat(posX, posZ, floor.depth, floor.height, shader));
                     }
-                    if (Map.map[i][j] == 2)
+
+                    if (floor.Map.map[i][j] == 1)
                     {
-                        SetPlayer(posX, posZ, 0.7f);
+                        floor.Walls.Add(MakeBlock(posX, posZ, floor.depth, floor.height, shader));
+                    }
+                    if (floor.Map.map[i][j] == 2)
+                    {
+                        SetPlayer(posX, posZ, 0.7f - floor.depth * floor.height);
                         //MakeObject(posX, posZ, shader, "Objects/Flashlight.obj");
                     }
-                    if (Map.map[i][j] == 4)
+                    if (floor.Map.map[i][j] == 4)
                     {
-                        Block doors = MakeDoors(posX, posZ, shader);
-                        Doors.Add(doors);
-                        DoorsHitboxes.Add(doors);
+                        Doors doors = MakeDoors(posX, posZ, floor.depth, floor.height, shader);
+                        floor.Doors.Add(doors);
+                        floor.DoorsHitboxes.Add(doors);
                     }
+                    if (floor.Map.map[i][j] == 8)
+                    {
+                        SecretDoors secretdoors = MakeSecretDoors(posX, posZ, floor.depth, floor.height, shader);
+                        floor.secretDoors.Add(secretdoors);
+                        floor.DoorsHitboxes.Add(secretdoors);
+                    }
+                    if (floor.Map.map[i][j] == 9)
+                    {
+                        Teleport teleport = MakeTeleport(posX, posZ, floor.depth, floor.height, shader);
+                        floor.Teleports.Add(teleport);
+                    }
+
                 }
             }
         }
@@ -313,59 +445,68 @@ namespace ConsoleApp1
             Camera.z = -posZ;
         }
 
-        public Flat MakeFlat(int posX, int posZ, Shader shader)
+        public Flat MakeFlat(int posX, int posZ, int depth, float height, Shader shader)
         {
             Flat flat = new Flat();
-            flat.position = new Vector3(posX, 0, posZ);
+            flat.position = new Vector3(posX, -depth * height, posZ);
             flat.Shader = shader;
             flat.Material = new Material(new Vector3(0.5f, 0.01f, 0.01f), new Vector3(0.8f), 20.0f);
             flat.countNormals();
             return flat;
         }
-
-        public Block MakeBlock(int posX, int posZ, Shader shader)
+        public SecretDoors MakeSecretDoors(int posX, int posZ, int depth, float height, Shader shader)
         {
-            Block block = new Block();
-            block.position = new Vector3(posX, 0, posZ);
+            SecretDoors doors = new SecretDoors();
+            doors.position = new Vector3(posX, -depth * height, posZ);
+            doors.defaultposition = new Vector3(posX, -depth * height, posZ);
+            doors.Shader = shader;
+            doors.Material = new Material(new Vector3(0.5f, 0.01f, 0.01f), new Vector3(0.8f), 20.0f);
+            doors.countNormals();
+            return doors;
+        }
+        public Teleport MakeTeleport(int posX, int posZ, int depth, float height,Shader shader)
+        {
+            Teleport teleport = new Teleport();
+            teleport.position = new Vector3(posX, -depth * height, posZ);
+            teleport.Shader = shader;
+            teleport.Material = new Material(new Vector3(0.0f, 0.3f, 0.1f), new Vector3(0.8f), 20.0f);
+            teleport.countNormals();
+            return teleport;
+        }
+
+        public Block MakeBlock(int posX, int posZ, int depth, float height, Shader shader)
+        {
+            Block block = new Block(false);
+            block.position = new Vector3(posX, -depth * height, posZ);
             block.Shader = shader;
             block.Material = new Material(new Vector3(0.5f, 0.01f, 0.01f), new Vector3(0.8f), 20.0f);
             block.countNormals();
             return block;
         }
 
-        public Block MakeDoors(int posX, int posZ, Shader shader)
+        public Doors MakeDoors(int posX, int posZ, int depth, float height, Shader shader)
         {
-            Block doors = new Block();
-            doors.position = new Vector3(posX, 0, posZ);
-            doors.defaultposition = new Vector3(posX, 0, posZ);
+            Doors doors = new Doors();
+            doors.position = new Vector3(posX, -depth * height, posZ);
+            doors.defaultposition = new Vector3(posX, -depth * height, posZ);
             doors.Shader = shader;
             doors.Material = new Material(new Vector3(0.4f, 0.4f, 0.4f), new Vector3(0.8f), 40.0f);
             doors.countNormals();
             return doors;
         }
 
-        public ObjectC MakeObject(int posX, int posZ, Shader shader, string objFilename)
+        public void LoadMaps(string[] args)
         {
-            ObjectC obj = new ObjectC(objFilename);
-            obj.position = new Vector3(posX, 1, posZ);
-            obj.Shader = shader;
-            obj.Material = new Material(new Vector3(0.4f, 0.4f, 0.4f), new Vector3(0.8f), 40.0f);
-            Objects.Add(obj);
-            return obj;
+            for(int i = 0; i < args.Length; i++)
+            {
+                string mapFilename = "Maps/" + args[i];
+                Floor floor = new Floor(mapFilename, i);
+                Floors.Add(floor);
+            }
         }
 
         public static void Main(string[] args)
         {
-            string mapFilename;
-            if (args.Length > 0)
-            {
-                mapFilename = "Maps/" + args[0];
-            }
-            else
-            {
-                mapFilename = "Maps/map1.txt";
-            }
-
             GameWindowSettings gws = new GameWindowSettings
             {
                 UpdateFrequency = 0.0,
@@ -379,7 +520,7 @@ namespace ConsoleApp1
                 DepthBits = 24,
 
             };
-            var zpg = new MyGameWindow(gws, nws, mapFilename);
+            var zpg = new MyGameWindow(gws, nws, args);
             zpg.Run();
         }
     }

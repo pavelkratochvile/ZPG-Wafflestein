@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace ConsoleApp1.MapObjects
 {
     public class Block : Model
     {
@@ -18,8 +18,12 @@ namespace ConsoleApp1
         public bool isOpened = false;
 
         public int TILE_SIZE = 2;
-        public Block()
+        public Block(bool skipinit)
         {
+            if (skipinit)
+            {
+                return;
+            }
             Vertices.Add(new Vertex(new Vector3(1, -1, 1)));
             Vertices.Add(new Vertex(new Vector3(1, -1, -1)));
             Vertices.Add(new Vertex(new Vector3(1, 2, -1)));
@@ -98,7 +102,7 @@ namespace ConsoleApp1
         {
           
 
-            Vector3 pos = this.position;
+            Vector3 pos = position;
             Vector3 p1 = new Vector3(pos.X + TILE_SIZE, pos.Y, pos.Z);
             Vector3 p2 = new Vector3(pos.X - TILE_SIZE, pos.Y, pos.Z);
             Vector3 p3 = new Vector3(pos.X, pos.Y, pos.Z + TILE_SIZE);
@@ -109,19 +113,19 @@ namespace ConsoleApp1
 
                 if(CheckPosition(wall, p1))
                 {
-                    this.targetPosition = wall.position;
+                    targetPosition = wall.position;
                 }
                 if(CheckPosition(wall, p2))
                 {
-                    this.targetPosition = wall.position;
+                    targetPosition = wall.position;
                 }
                 if(CheckPosition(wall, p3))
                 {
-                    this.targetPosition = wall.position;
+                    targetPosition = wall.position;
                 }
                 if(CheckPosition(wall, p4))
                 {
-                    this.targetPosition = wall.position;
+                    targetPosition = wall.position;
                 }
             }
             return new Vector3(0, 0, 0);
@@ -130,8 +134,8 @@ namespace ConsoleApp1
         {
             if(wall.position.X == position.X && wall.position.Z == position.Z && !isOpened)
             {
-                this.isOpening = true; 
-                this.Changed = true;
+                isOpening = true; 
+                Changed = true;
                 return true;
             }
             return false;

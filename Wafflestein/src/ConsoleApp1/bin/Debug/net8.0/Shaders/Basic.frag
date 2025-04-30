@@ -19,6 +19,10 @@ uniform int lightOn;
 uniform float inerCutOff;
 uniform float outerCutOff;
 
+uniform bool hasTeleported;
+uniform float beforeTeleportTime;
+uniform float afterTeleportTime;
+
 in vec3 normalWorld;
 in vec3 fragmentWorld;
 
@@ -38,8 +42,20 @@ void main() {
    
     vec3 viewDir = normalize(cameraPosWorld - fragmentWorld);
     vec3 reflectDir = reflect(-lightDir, norm);
-    vec3 specular = material.specular * pow(max(dot(reflectDir, viewDir), 0.0), material.shininess) * lightColor * lightIntensity *0.1;
+    vec3 specular = material.specular * pow(max(dot(reflectDir, viewDir), 0.0), material.shininess) * lightColor * lightIntensity * 0.1;
    
     vec3 finalColor = diffuse * intensity * 2  + ambient * 3 + specular * intensity;
+    
+    if(!hasTeleported)
+    {
+        float part = beforeTeleportTime / 2000.0;
+        finalColor += vec3(1.0, 1.0, 1.0) * part;
+
+    }
+    else if(hasTeleported)
+    {
+        float part = afterTeleportTime / 2000.0;
+        finalColor += vec3(1.0, 1.0, 1.0) * (1-part);
+    }
     outColor = vec4(finalColor, 1.0);
 }

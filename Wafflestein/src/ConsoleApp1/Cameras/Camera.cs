@@ -1,7 +1,9 @@
-﻿using OpenTK.Graphics.OpenGL;
+﻿using ConsoleApp1.MapObjects;
+using OpenTK.Graphics.OpenGL;
 using OpenTK.Mathematics;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -12,6 +14,13 @@ namespace ConsoleApp1.Cameras
     public class Camera: ICamera
     {
         public ViewPort viewPort;
+
+        public Stopwatch sw;
+        public Stopwatch teleportStopwatch = new Stopwatch();
+        
+        public Stopwatch beforeTP = new Stopwatch();
+        public Stopwatch afterTP = new Stopwatch();
+        public bool hasTeleported = false;
 
         private float zoom = 1f;
         public int[][] map { get; set; }
@@ -55,6 +64,8 @@ namespace ConsoleApp1.Cameras
         public Camera(ViewPort viewPort)
         {
             this.viewPort = viewPort;
+            sw = new Stopwatch();
+            this.sw.Start();
         }
 
         public void Zoom(float coef)
