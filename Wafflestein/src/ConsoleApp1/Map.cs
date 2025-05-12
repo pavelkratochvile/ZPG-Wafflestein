@@ -9,6 +9,11 @@ namespace ConsoleApp1
     public class Map
     {
         public int[][] map { get; set; }
+
+        public Map(string filename)
+        {
+            map = MapTranformation(filename);
+        }
         public static int[][] MapTranformation(string filename)
         {
             string[] content = File.ReadAllLines(filename);

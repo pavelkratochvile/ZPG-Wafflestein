@@ -9,9 +9,6 @@ namespace ConsoleApp1.MapObjects
 {
     public class Flat : Model
     {
-        public bool Changed = false;
-
-        public int TILE_SIZE = 2;
         public Flat()
         {
             Vertices.Add(new Vertex(new Vector3(-1, -1, -1)));

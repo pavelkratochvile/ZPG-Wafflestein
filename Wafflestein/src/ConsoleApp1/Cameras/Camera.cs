@@ -29,7 +29,7 @@ namespace ConsoleApp1.Cameras
         public bool hasTeleported = false;
 
         private float zoom = 1f;
-        public int[][] map { get; set; }
+        public int[][] map { get; set; } = Array.Empty<int[]>();
 
         public float x;
         public float y;
@@ -42,10 +42,14 @@ namespace ConsoleApp1.Cameras
         {
             get
             {
+                if (viewPort.Control == null || viewPort.Height == 0 || viewPort.Control.Size.Y == 0)
+                {
+                    // Bezpečný návrat – jednotková matice
+                    return Matrix4.Identity;
+                }
+
                 float ratio = (float)(viewPort.Width * viewPort.Control.Size.X / (viewPort.Height * viewPort.Control.Size.Y));
-                //Matrix4 projection = Matrix4.CreateOrthographic(zoom * 2, zoom * 2 / ratio, -10, 10);
-                Matrix4 projection = Matrix4.CreatePerspectiveFieldOfView(zoom, ratio, 0.1f, 100f);
-                return projection;
+                return Matrix4.CreatePerspectiveFieldOfView(zoom, ratio, 0.1f, 100f);
             }
         }
 

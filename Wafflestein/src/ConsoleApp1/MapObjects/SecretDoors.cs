@@ -9,7 +9,6 @@ namespace ConsoleApp1.MapObjects
 {
     public class SecretDoors : Block
     {
-        public int TILE_SIZE = 2;
         public SecretDoors() : base(true)
         {
             Vertices.Add(new Vertex(new Vector3(1, -1, 1)));

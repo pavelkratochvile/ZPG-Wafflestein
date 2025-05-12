@@ -22,9 +22,12 @@ namespace ConsoleApp1
 
         public void SetUniforms(Shader shader)
         {
-            shader.SetUniform("material.diffuse", diffuse);
-            shader.SetUniform("material.specular", specular);
-            shader.SetUniform("material.shininess", shininess);
+            if (shader != null)
+            {
+                shader.SetUniform("material.diffuse", diffuse);
+                shader.SetUniform("material.specular", specular);
+                shader.SetUniform("material.shininess", shininess);
+            }
         }
     }
 

@@ -13,6 +13,6 @@ x                      x
 xxAxxx    xxAxx        x
 x    G    x * x   xxAxxx
 x    x    x T x   x    x
-o @  x    xxxxx   x *T x
+o    x    xxxxx   x *T x
 x    x            x    x
 xxxxxxxxxxxxxxxxxxxxxxxx

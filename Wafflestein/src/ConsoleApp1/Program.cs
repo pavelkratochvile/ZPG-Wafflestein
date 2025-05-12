@@ -28,10 +28,7 @@ namespace ConsoleApp1
         private float speed = 5f;
         private float doorspeed = 1f;
         private double[] movingVector = new double[] { 0, 0 };
-        private string mapFilename;
         private ViewPort Viewport { get; set; }
-        private ViewPort MinimapViewport { get; set; }
-        private double deltaTime = 0.0;
         private Camera Camera { get; set; }
 
         private Stopwatch stopwatch = new Stopwatch();
@@ -56,6 +53,17 @@ namespace ConsoleApp1
             Camera = new Camera(Viewport);
             this.CursorState = CursorState.Grabbed;
             MouseWheel += OnMouseWheel;
+
+            Shader shader = new Shader("Shaders/Basic.vert", "Shaders/Basic.frag");
+
+            stopwatch.Start();
+            Camera.map = Floors[0].Map.map;
+
+            for (int i = 0; i < Floors.Count; i++)
+            {
+                GenerateMap(shader, Floors[i]);
+            }
+            curentFloor = Floors[0];
         }
 
         protected override void OnUpdateFrame(FrameEventArgs args)
@@ -77,7 +85,7 @@ namespace ConsoleApp1
             BasicPhysics(deltaTime);
             CheckDoors(deltaTime, curentFloor);
             CheckSecretDoors(deltaTime, curentFloor);
-            IsExiting();
+            WantExit();
             ChangeFloor();
             standsInHole();
 
@@ -101,21 +109,11 @@ namespace ConsoleApp1
         protected override void OnLoad()
         {
             base.OnLoad();
-            Shader shader = new Shader("Shaders/Basic.vert", "Shaders/Basic.frag");
 
             GL.Enable(EnableCap.DepthTest);
             GL.DepthFunc(DepthFunction.Less);
             GL.DepthMask(true);
             GL.ClearDepth(1.0f);
-            
-            stopwatch.Start();
-            Camera.map = Floors[0].Map.map;
-
-            for (int i = 0; i < Floors.Count; i++)
-            {
-                GenerateMap(shader, Floors[i]);
-            }
-            curentFloor = Floors[0];
         }
 
         private void ChangeFloor()
@@ -141,7 +139,7 @@ namespace ConsoleApp1
             Camera.RotateX(deltaY);
         }
 
-        private void IsExiting()
+        private void WantExit()
         {
             if (KeyboardState.IsKeyDown(Keys.Escape))
             {
@@ -190,7 +188,6 @@ namespace ConsoleApp1
             {
                 Camera.velocity.Y = Camera.jumpStrength;
                 Camera.isOnGround = false;
-                Console.WriteLine("jump");
             }
         }
 
@@ -206,7 +203,7 @@ namespace ConsoleApp1
                 lastTime = currentTime;
             }
         }
-        private void OnMouseWheel(MouseWheelEventArgs e)
+        protected override void OnMouseWheel(MouseWheelEventArgs e)
         {
             Camera.Zoom(-e.OffsetY / 5);
         }
@@ -310,7 +307,7 @@ namespace ConsoleApp1
                         floor.secretDoors[i].isClosing = true;
                     }
                 }
-                if (floor.secretDoors[i].isClosing)
+                if (floor.secretDoors[i].isClosing) 
                 {
                     DoorMove(floor.secretDoors[i], deltaTime);
                 }
@@ -493,7 +490,6 @@ namespace ConsoleApp1
                     {
                         SetPlayer(posX, posZ, 0.7f - floor.depth * floor.height);
                         //MakeObject(posX, posZ, shader, "Objects/Flashlight.obj");
-                        Console.WriteLine(0.7f - floor.depth * floor.height);
                     }
                     if (floor.Map.map[i][j] == 4)
                     {
@@ -598,9 +594,20 @@ namespace ConsoleApp1
 
         public void LoadMaps(string[] args)
         {
-            for(int i = 0; i < args.Length; i++)
+            string[] maps;
+            if (args.Length == 0)
             {
-                string mapFilename = "Maps/" + args[i];
+                Console.WriteLine("Nebyly zadány žádné mapy.");
+                maps = new string[] { "map1.txt", "map3.txt", "map4.txt"};
+            }
+            else
+            {
+                maps = args;
+            }
+
+            for (int i = 0; i < maps.Length; i++)
+            {
+                string mapFilename = "Maps/" + maps[i];
                 Floor floor = new Floor(mapFilename, i);
                 Floors.Add(floor);
             }

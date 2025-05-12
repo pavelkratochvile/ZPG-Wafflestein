@@ -10,14 +10,11 @@ namespace ConsoleApp1.MapObjects
 {
     public class Block : Model
     {
-        public bool Changed = false;
         public bool isOpening = false;
         public bool isClosing = false;
         public Vector3 targetPosition = new Vector3(0, 0, 0);
         public Vector3 defaultposition = new Vector3(0, 0, 0);
         public bool isOpened = false;
-
-        public int TILE_SIZE = 2;
         public Block(bool skipinit)
         {
             if (skipinit)
@@ -65,38 +62,7 @@ namespace ConsoleApp1.MapObjects
             Vertices.Add(new Vertex(new Vector3(1, 2, -1)));
             Triangles.Add(new Triangle(21, 23, 22));
         }
-        public void countNormals()
-        {
-            for (int i = 0; i < Vertices.Count; i++)
-            {
-                Vertices[i].normal = new Vector3(0, 0, 0);
-            }
-
-            for (int i = 0; i < Triangles.Count; i++)
-            {
-                int i1 = Triangles[i].I1;
-                int i2 = Triangles[i].I2;
-                int i3 = Triangles[i].I3;
-
-                Vector3 v1 = Vertices[i1].Position;
-                Vector3 v2 = Vertices[i2].Position;
-                Vector3 v3 = Vertices[i3].Position;
-
-                Vector3 u = v2 - v1;
-                Vector3 v = v3 - v1;
-                Vector3 normal = Vector3.Cross(u, v);
-                normal = normal.Normalized();
-
-                Vertices[i1].normal = normal;
-                Vertices[i2].normal = normal;
-                Vertices[i3].normal = normal;
-            }
-
-            for (int i = 0; i < Vertices.Count; i++)
-            {
-                Vertices[i].normal = Vertices[i].normal.Normalized();
-            }
-        }
+        
 
         public Vector3 GetNearestWall(List<Block> Walls)
         {

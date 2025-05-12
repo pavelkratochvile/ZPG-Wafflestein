@@ -9,7 +9,6 @@ namespace ConsoleApp1.MapObjects
 {
     public class Doors : Block
     {
-        public int TILE_SIZE = 2;
         public Doors() : base(true)
         {
             float shrink = 0.999f;

@@ -1,5 +1,8 @@
 C:\Users\pavel\OneDrive\Dokumenty\Wafflestein\bin\Maps\map1.txt
 C:\Users\pavel\OneDrive\Dokumenty\Wafflestein\bin\Maps\map2.txt
+C:\Users\pavel\OneDrive\Dokumenty\Wafflestein\bin\Maps\map3.txt
+C:\Users\pavel\OneDrive\Dokumenty\Wafflestein\bin\Maps\map4.txt
+C:\Users\pavel\OneDrive\Dokumenty\Wafflestein\bin\Objects\Flashlight.obj
 C:\Users\pavel\OneDrive\Dokumenty\Wafflestein\bin\Objects\sphere.obj
 C:\Users\pavel\OneDrive\Dokumenty\Wafflestein\bin\Objects\untitled.obj
 C:\Users\pavel\OneDrive\Dokumenty\Wafflestein\bin\Shaders\Basic.frag

@@ -13,8 +13,8 @@ namespace ConsoleApp1.MapObjects
 {
     public class Model : IDisposable
     {
-        public Shader Shader { get; set; }
-        public Material Material { get; set; }
+        public Shader? Shader { get; set; }
+        public Material? Material { get; set; }
         public BindingList<Vertex> Vertices { get; set; }
         public BindingList<Triangle> Triangles { get; set; }
         
@@ -30,8 +30,6 @@ namespace ConsoleApp1.MapObjects
         public int TILE_SIZE = 2;   
 
         float startTime;
-        float cutoff = 0.9763f;
-
 
         public Model()
         {
@@ -113,23 +111,30 @@ namespace ConsoleApp1.MapObjects
             cameraDirection = TiltVectorDown(cameraDirection, 2);
             Vector3 cp = -camera.GetPosition();
 
-            Shader.Use();
-            Shader.SetUniform("projection", camera.Projection);
-            Shader.SetUniform("view", camera.View);
-            Shader.SetUniform("model", translate);
+            if(Shader != null)
+            {
+                Shader.Use();
+                Shader.SetUniform("projection", camera.Projection);
+                Shader.SetUniform("view", camera.View);
+                Shader.SetUniform("model", translate);
 
-            Shader.SetUniform("hasTeleported", hasTeleported);
-            Shader.SetUniform("lightOn", light.lightOn);
-            Shader.SetUniform("cameraPosWorld", cp);
-            Shader.SetUniform("lightPosWorld", new Vector3(cp.X, cp.Y + 0.35f, cp.Z));
-            Shader.SetUniform("lightDirWorld", cameraDirection);
-            Shader.SetUniform("inerCutOff", light.inerCutOff);
-            Shader.SetUniform("outerCutOff", light.outerCutOff);
-            Shader.SetUniform("lightColor", light.color);
-            Shader.SetUniform("lightIntensity", light.intensity);
-            Shader.SetUniform("beforeTeleportTime", beforeTP);
-            Shader.SetUniform("afterTeleportTime", afterTP);
-            Material.SetUniforms(Shader);
+                Shader.SetUniform("hasTeleported", hasTeleported);
+                Shader.SetUniform("lightOn", light.lightOn);
+                Shader.SetUniform("cameraPosWorld", cp);
+                Shader.SetUniform("lightPosWorld", new Vector3(cp.X, cp.Y + 0.35f, cp.Z));
+                Shader.SetUniform("lightDirWorld", cameraDirection);
+                Shader.SetUniform("inerCutOff", light.inerCutOff);
+                Shader.SetUniform("outerCutOff", light.outerCutOff);
+                Shader.SetUniform("lightColor", light.color);
+                Shader.SetUniform("lightIntensity", light.intensity);
+                Shader.SetUniform("beforeTeleportTime", beforeTP);
+                Shader.SetUniform("afterTeleportTime", afterTP);
+            }
+            if (Material != null && Shader != null)
+            {
+                Material.SetUniforms(Shader);
+            }
+
 
             GL.BindVertexArray(vao);
             GL.BindBuffer(BufferTarget.ArrayBuffer, vbo);
