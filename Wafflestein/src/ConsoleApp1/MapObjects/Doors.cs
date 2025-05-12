@@ -9,12 +9,10 @@ namespace ConsoleApp1.MapObjects
 {
     public class Doors : Block
     {
-
-
         public int TILE_SIZE = 2;
         public Doors() : base(true)
         {
-            float shrink = 0.99f;
+            float shrink = 0.999f;
 
             Vertices.Add(new Vertex(new Vector3(1 * shrink, -1 * shrink, 1 * shrink)));
             Vertices.Add(new Vertex(new Vector3(1 * shrink, -1 * shrink, -1 * shrink)));

@@ -70,9 +70,13 @@ namespace ConsoleApp1
                     {
                         line[j] = 9;
                     }
-                    else if (ascii == 61) // propad
+                    else if (ascii == 62) // propad
                     {
                         line[j] = 10;
+                    }
+                    else if (ascii == 60) // propad
+                    {
+                        line[j] = 11;
                     }
                 }
                 grid[i - 1] = line;

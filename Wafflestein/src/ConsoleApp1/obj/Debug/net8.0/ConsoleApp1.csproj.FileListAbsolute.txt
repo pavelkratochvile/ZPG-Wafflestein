@@ -222,3 +222,4 @@ C:\Users\pavel\OneDrive\Dokumenty\ZPG\ZPG-Wafflestein\Wafflestein\src\ConsoleApp
 C:\Users\pavel\OneDrive\Dokumenty\ZPG\ZPG-Wafflestein\Wafflestein\src\ConsoleApp1\obj\Debug\net8.0\ConsoleApp1.genruntimeconfig.cache
 C:\Users\pavel\OneDrive\Dokumenty\ZPG\ZPG-Wafflestein\Wafflestein\src\ConsoleApp1\obj\Debug\net8.0\ref\ConsoleApp1.dll
 C:\Users\pavel\OneDrive\Dokumenty\ZPG\ZPG-Wafflestein\Wafflestein\src\ConsoleApp1\bin\Debug\net8.0\Maps\map3.txt
+C:\Users\pavel\OneDrive\Dokumenty\ZPG\ZPG-Wafflestein\Wafflestein\src\ConsoleApp1\bin\Debug\net8.0\Maps\map4.txt

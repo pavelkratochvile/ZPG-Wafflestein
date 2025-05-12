@@ -13,6 +13,12 @@ namespace ConsoleApp1.Cameras
 {
     public class Camera: ICamera
     {
+        public Vector3 velocity = new Vector3(0,0,0);
+        public float gravity = -9.8f;
+        public bool isOnGround = false;
+        public float jumpStrength = 4.0f;
+        public float height = 0.7f;
+
         public ViewPort viewPort;
 
         public Stopwatch sw;
@@ -66,6 +72,15 @@ namespace ConsoleApp1.Cameras
             this.viewPort = viewPort;
             sw = new Stopwatch();
             this.sw.Start();
+        }
+
+        public void SetVelocity(Vector3 velocity)
+        {
+            this.velocity = velocity;
+        }
+        public Vector3 getVelocity()
+        {
+            return this.velocity;
         }
 
         public void Zoom(float coef)

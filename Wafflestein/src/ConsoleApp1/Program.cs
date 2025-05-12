@@ -66,18 +66,22 @@ namespace ConsoleApp1
         protected override void OnRenderFrame(FrameEventArgs args)
         {
             float deltaTime = (float)args.Time;
-            
+            this.Title = curentFloor.depth.ToString();
             CountFPS();
-            this.Title = Floors.Count.ToString() ;
             MakeCurrent();
-            Console.WriteLine(Camera.hasTeleported.ToString());
             GetMovingVector();
             turnLight();
             MakeMove(deltaTime);
-            CheckDoors(deltaTime, Floors[0]);
-            CheckSecretDoors(deltaTime, Floors[0]);
-            CheckTeleports(Floors[0]);
+            CheckJumps();
+            CheckTeleports(curentFloor);
+            BasicPhysics(deltaTime);
+            CheckDoors(deltaTime, curentFloor);
+            CheckSecretDoors(deltaTime, curentFloor);
             IsExiting();
+            ChangeFloor();
+            standsInHole();
+
+
             GL.ClearColor(Color.Black);
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
             
@@ -85,7 +89,6 @@ namespace ConsoleApp1
             {
                 DrawMap(Floors[i]);
             }
-            
             this.SwapBuffers();
         }
 
@@ -106,14 +109,24 @@ namespace ConsoleApp1
             GL.ClearDepth(1.0f);
             
             stopwatch.Start();
-            
             Camera.map = Floors[0].Map.map;
-            
-            for(int i = 0; i < Floors.Count; i++)
+
+            for (int i = 0; i < Floors.Count; i++)
             {
                 GenerateMap(shader, Floors[i]);
             }
             curentFloor = Floors[0];
+        }
+
+        private void ChangeFloor()
+        {
+            int index = Floors.IndexOf(curentFloor) + 1;
+            
+            if (standsInHole())
+            {
+                curentFloor = Floors[index];
+                Camera.isOnGround = false;
+            }
         }
 
         protected override void OnMouseMove(MouseMoveEventArgs e)
@@ -135,7 +148,52 @@ namespace ConsoleApp1
                 Close();
             }
         }
-        
+
+        private bool standsInHole()
+        {
+            float posX = -Camera.x;
+            float posZ = -Camera.z;
+
+            foreach(Hole hole in curentFloor.Holes)
+            {
+                float max_x = (float)hole.position.X + hole.TILE_SIZE / 2;
+                float min_x = (float)hole.position.X - hole.TILE_SIZE / 2;
+                float max_z = (float)hole.position.Z + hole.TILE_SIZE / 2;
+                float min_z = (float)hole.position.Z - hole.TILE_SIZE / 2;
+
+                if (posX < max_x && posX > min_x && posZ < max_z && posZ > min_z)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public void BasicPhysics(float deltaTime)
+        {   
+            if (!Camera.isOnGround)
+            {
+                Camera.velocity.Y += Camera.gravity * deltaTime;
+            }
+
+            Camera.y -= Camera.velocity.Y * deltaTime;
+            
+            if (Camera.y >= -Camera.height + curentFloor.height * curentFloor.depth)
+            {
+                Camera.y = -Camera.height + curentFloor.height * curentFloor.depth;
+                Camera.isOnGround = true;
+            }
+        }
+        private void CheckJumps()
+        {
+            if (KeyboardState.IsKeyDown(Keys.Space) && Camera.isOnGround)
+            {
+                Camera.velocity.Y = Camera.jumpStrength;
+                Camera.isOnGround = false;
+                Console.WriteLine("jump");
+            }
+        }
+
         public void CountFPS()
         {
             frameCount++;
@@ -186,8 +244,6 @@ namespace ConsoleApp1
                 float distance = (float)Math.Sqrt((-Camera.x - floor.Doors[i].defaultposition.X) * (-Camera.x - floor.Doors[i].defaultposition.X) + (-Camera.z - floor.Doors[i].defaultposition.Z) * (-Camera.z - floor.Doors[i].defaultposition.Z));
                 if (distance < radius && KeyboardState.IsKeyDown(Keys.E))
                 {
-                    Console.WriteLine("oteviraji se dvere:" + floor.Doors[i].isOpening);
-                    Console.WriteLine("zaviraji se dvere:" + floor.Doors[i].isClosing);
                     
                     if(floor.Doors[i].isOpening == false && !floor.Doors[i].Changed)
                     {
@@ -229,8 +285,6 @@ namespace ConsoleApp1
                 float distance = (float)Math.Sqrt((-Camera.x - floor.secretDoors[i].defaultposition.X) * (-Camera.x - floor.secretDoors[i].defaultposition.X) + (-Camera.z - floor.secretDoors[i].defaultposition.Z) * (-Camera.z - floor.secretDoors[i].defaultposition.Z));
                 if (distance < radius && KeyboardState.IsKeyDown(Keys.E))
                 {
-                    Console.WriteLine("oteviraji se dvere:" + floor.Doors[i].isOpening);
-                    Console.WriteLine("zaviraji se dvere:" + floor.Doors[i].isClosing);
 
                     if (floor.secretDoors[i].isOpening == false && !floor.secretDoors[i].Changed)
                     {
@@ -278,7 +332,6 @@ namespace ConsoleApp1
             else
             {
                 doors.position += step;
-                Console.WriteLine(doors.position);
             }
         }
         public void CheckTeleports(Floor floor)
@@ -297,19 +350,28 @@ namespace ConsoleApp1
                     {
                         Camera.beforeTP.Reset();
                         Camera.afterTP.Start();
-                        Camera.hasTeleported = true;
                         Camera.sw.Restart();
+                        Camera.hasTeleported = true;
 
-                        
                         Random random = new Random();
-                        int randomIndex = random.Next(0, floor.Teleports.Count);
+                        int randomFloorIndex = random.Next(0, Floors.Count);
+                        
+                        while (Floors[randomFloorIndex].Teleports.Count == 0)
+                        {
+                            randomFloorIndex = random.Next(0, Floors.Count);
+                        }
+                        
+                        int randomIndex = random.Next(0, Floors[randomFloorIndex].Teleports.Count);
+                        
                         while(randomIndex == i)
                         {
-                            randomIndex = random.Next(0, floor.Teleports.Count);
+                            randomIndex = random.Next(0, Floors[randomFloorIndex].Teleports.Count);
                         }
 
-                        this.Camera.x = -floor.Teleports[randomIndex].position.X;
-                        this.Camera.z = -floor.Teleports[randomIndex].position.Z;
+                        this.Camera.x = -Floors[randomFloorIndex].Teleports[randomIndex].position.X;
+                        this.Camera.y = -Floors[randomFloorIndex].Teleports[randomIndex].position.Y;
+                        this.Camera.z = -Floors[randomFloorIndex].Teleports[randomIndex].position.Z;
+                        curentFloor = Floors[randomFloorIndex];
                     }
                 }
             }
@@ -381,6 +443,10 @@ namespace ConsoleApp1
             {
                 flat.Draw(Camera, light, Camera.hasTeleported, beforeTP, afterTP);
             }
+            foreach (Ceiling ceiling in floor.Ceiling)
+            {
+                ceiling.Draw(Camera, light, Camera.hasTeleported, beforeTP, afterTP);
+            }
             foreach (ObjectC obj in floor.Objects)
             {
                 obj.Draw(Camera, light, Camera.hasTeleported, beforeTP, afterTP);
@@ -402,8 +468,20 @@ namespace ConsoleApp1
                     int posZ = (-1) * j * TILE_SIZE;
 
 
-                    if (floor.Map.map[i][j] != 10)
+                    if(floor.Map.map[i][j] == 10)
                     {
+                        floor.Ceiling.Add(MakeCeiling(posX, posZ, floor.depth, floor.height, shader));
+                        floor.Holes.Add(MakeHole(posX, posZ, floor.depth, floor.height, shader, 0));
+
+                    }
+                    else if(floor.Map.map[i][j] == 11)
+                    {
+                        floor.Ground.Add(MakeFlat(posX, posZ, floor.depth, floor.height, shader));
+                        //floor.Holes.Add(MakeHole(posX, posZ, floor.depth, floor.height, shader, 1));
+                    }
+                    else
+                    {
+                        floor.Ceiling.Add(MakeCeiling(posX, posZ, floor.depth, floor.height, shader));
                         floor.Ground.Add(MakeFlat(posX, posZ, floor.depth, floor.height, shader));
                     }
 
@@ -415,6 +493,7 @@ namespace ConsoleApp1
                     {
                         SetPlayer(posX, posZ, 0.7f - floor.depth * floor.height);
                         //MakeObject(posX, posZ, shader, "Objects/Flashlight.obj");
+                        Console.WriteLine(0.7f - floor.depth * floor.height);
                     }
                     if (floor.Map.map[i][j] == 4)
                     {
@@ -437,6 +516,15 @@ namespace ConsoleApp1
                 }
             }
         }
+        private Hole MakeHole(int posX, int posZ, int depth, float height, Shader shader, int id)
+        {
+            Hole hole = new Hole(id);
+            hole.position = new Vector3(posX, -depth * height, posZ);
+            hole.Shader = shader;
+            hole.Material = new Material(new Vector3(0.2f, 0.2f, 0.2f), new Vector3(0.5f), 10.0f); // tmavý, nenápadný
+            hole.countNormals();
+            return hole;
+        }
 
         public void SetPlayer(int posX, int posZ, float height)
         {
@@ -450,26 +538,39 @@ namespace ConsoleApp1
             Flat flat = new Flat();
             flat.position = new Vector3(posX, -depth * height, posZ);
             flat.Shader = shader;
-            flat.Material = new Material(new Vector3(0.5f, 0.01f, 0.01f), new Vector3(0.8f), 20.0f);
+            flat.Material = new Material(new Vector3(0.6f, 0.5f, 0.4f), new Vector3(0.7f), 15.0f); // hnědošedá země
             flat.countNormals();
             return flat;
         }
+
+        public Ceiling MakeCeiling(int posX, int posZ, int depth, float height, Shader shader)
+        {
+            Ceiling ceiling = new Ceiling();
+            ceiling.position = new Vector3(posX, -depth * height + height, posZ);
+            ceiling.Shader = shader;
+            ceiling.Material = new Material(new Vector3(0.7f, 0.7f, 0.75f), new Vector3(0.9f), 25.0f); // světle šedá
+            ceiling.countNormals();
+            return ceiling;
+        }
+
         public SecretDoors MakeSecretDoors(int posX, int posZ, int depth, float height, Shader shader)
         {
             SecretDoors doors = new SecretDoors();
             doors.position = new Vector3(posX, -depth * height, posZ);
             doors.defaultposition = new Vector3(posX, -depth * height, posZ);
             doors.Shader = shader;
+            // Stejné jako Block:
             doors.Material = new Material(new Vector3(0.5f, 0.01f, 0.01f), new Vector3(0.8f), 20.0f);
             doors.countNormals();
             return doors;
         }
-        public Teleport MakeTeleport(int posX, int posZ, int depth, float height,Shader shader)
+
+        public Teleport MakeTeleport(int posX, int posZ, int depth, float height, Shader shader)
         {
             Teleport teleport = new Teleport();
             teleport.position = new Vector3(posX, -depth * height, posZ);
             teleport.Shader = shader;
-            teleport.Material = new Material(new Vector3(0.0f, 0.3f, 0.1f), new Vector3(0.8f), 20.0f);
+            teleport.Material = new Material(new Vector3(0.1f, 0.8f, 0.9f), new Vector3(1.0f), 50.0f); // zářivě modrozelená, lesklá
             teleport.countNormals();
             return teleport;
         }
@@ -479,7 +580,7 @@ namespace ConsoleApp1
             Block block = new Block(false);
             block.position = new Vector3(posX, -depth * height, posZ);
             block.Shader = shader;
-            block.Material = new Material(new Vector3(0.5f, 0.01f, 0.01f), new Vector3(0.8f), 20.0f);
+            block.Material = new Material(new Vector3(0.5f, 0.01f, 0.01f), new Vector3(0.8f), 20.0f); // tmavě červená, střední lesk
             block.countNormals();
             return block;
         }
@@ -490,7 +591,7 @@ namespace ConsoleApp1
             doors.position = new Vector3(posX, -depth * height, posZ);
             doors.defaultposition = new Vector3(posX, -depth * height, posZ);
             doors.Shader = shader;
-            doors.Material = new Material(new Vector3(0.4f, 0.4f, 0.4f), new Vector3(0.8f), 40.0f);
+            doors.Material = new Material(new Vector3(0.3f, 0.3f, 0.35f), new Vector3(0.6f), 35.0f); // kovový vzhled
             doors.countNormals();
             return doors;
         }

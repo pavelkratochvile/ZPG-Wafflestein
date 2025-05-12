@@ -12,47 +12,67 @@ namespace ConsoleApp1.MapObjects
         public int tpIndex;
         public Teleport() : base(true)
         {
-            float shrink = 0.1f;
+            float legWidth = 0.2f;
+            float yBottom = -1f;
+            float yTop = 1.99f;
 
-            Vertices.Add(new Vertex(new Vector3(1 * shrink, -1 * shrink, 1 * shrink)));
-            Vertices.Add(new Vertex(new Vector3(1 * shrink, -1 * shrink, -1 * shrink)));
-            Vertices.Add(new Vertex(new Vector3(1 * shrink, 2 * shrink, -1 * shrink)));
-            Triangles.Add(new Triangle(0, 1, 2));
+            Vector2[] legPositions = new Vector2[]
+            {
+                new Vector2(-1f,  1f),  // Levý přední
+                new Vector2( 1f,  1f),  // Pravý přední
+                new Vector2(-1f, -1f),  // Levý zadní
+                new Vector2( 1f, -1f)   // Pravý zadní
+            };
 
-            Vertices.Add(new Vertex(new Vector3(1 * shrink, -1 * shrink, 1 * shrink)));
-            Vertices.Add(new Vertex(new Vector3(1 * shrink, 2 * shrink, -1 * shrink)));
-            Vertices.Add(new Vertex(new Vector3(1 * shrink, 2 * shrink, 1 * shrink)));
-            Triangles.Add(new Triangle(3, 4, 5));
+            foreach (var pos in legPositions)
+            {
+                AddLeg((float)pos.X, (float)pos.Y, legWidth, yBottom, yTop);
+            }
 
-            Vertices.Add(new Vertex(new Vector3(1 * shrink, -1 * shrink, 1 * shrink)));
-            Vertices.Add(new Vertex(new Vector3(1 * shrink, 2 * shrink, 1 * shrink)));
-            Vertices.Add(new Vertex(new Vector3(-1 * shrink, -1 * shrink, 1 * shrink)));
-            Triangles.Add(new Triangle(6, 7, 8));
+            countNormals();
+        }
+        private void AddLeg(float centerX, float centerZ, float width, float yBottom, float yTop)
+        {
+            float half = width / 2f;
 
-            Vertices.Add(new Vertex(new Vector3(1 * shrink, 2 * shrink, 1 * shrink)));
-            Vertices.Add(new Vertex(new Vector3(-1 * shrink, -1 * shrink, 1 * shrink)));
-            Vertices.Add(new Vertex(new Vector3(-1 * shrink, 2 * shrink, 1 * shrink)));
-            Triangles.Add(new Triangle(9, 11, 10));
+            // Osm rohů kvádru
+            Vector3 p0 = new Vector3(centerX - half, yBottom, centerZ - half);
+            Vector3 p1 = new Vector3(centerX + half, yBottom, centerZ - half);
+            Vector3 p2 = new Vector3(centerX + half, yBottom, centerZ + half);
+            Vector3 p3 = new Vector3(centerX - half, yBottom, centerZ + half);
 
-            Vertices.Add(new Vertex(new Vector3(-1 * shrink, -1 * shrink, 1 * shrink)));
-            Vertices.Add(new Vertex(new Vector3(-1 * shrink, 2 * shrink, 1 * shrink)));
-            Vertices.Add(new Vertex(new Vector3(-1 * shrink, -1 * shrink, -1 * shrink)));
-            Triangles.Add(new Triangle(12, 13, 14));
+            Vector3 p4 = new Vector3(centerX - half, yTop, centerZ - half);
+            Vector3 p5 = new Vector3(centerX + half, yTop, centerZ - half);
+            Vector3 p6 = new Vector3(centerX + half, yTop, centerZ + half);
+            Vector3 p7 = new Vector3(centerX - half, yTop, centerZ + half);
 
-            Vertices.Add(new Vertex(new Vector3(-1 * shrink, 2 * shrink, 1 * shrink)));
-            Vertices.Add(new Vertex(new Vector3(-1 * shrink, 2 * shrink, -1 * shrink)));
-            Vertices.Add(new Vertex(new Vector3(-1 * shrink, -1 * shrink, -1 * shrink)));
-            Triangles.Add(new Triangle(15, 16, 17));
+            // Každý trojúhelník má své vlastní vrcholy
+            AddTriangle(p0, p1, p2); // spodní
+            AddTriangle(p0, p2, p3);
 
-            Vertices.Add(new Vertex(new Vector3(-1 * shrink, -1 * shrink, -1 * shrink)));
-            Vertices.Add(new Vertex(new Vector3(-1 * shrink, 2 * shrink, -1 * shrink)));
-            Vertices.Add(new Vertex(new Vector3(1 * shrink, -1 * shrink, -1 * shrink)));
-            Triangles.Add(new Triangle(18, 19, 20));
+            AddTriangle(p4, p6, p5); // horní
+            AddTriangle(p4, p7, p6);
 
-            Vertices.Add(new Vertex(new Vector3(-1 * shrink, 2 * shrink, -1 * shrink)));
-            Vertices.Add(new Vertex(new Vector3(1 * shrink, -1 * shrink, -1 * shrink)));
-            Vertices.Add(new Vertex(new Vector3(1 * shrink, 2 * shrink, -1 * shrink)));
-            Triangles.Add(new Triangle(21, 23, 22));
+            AddTriangle(p0, p4, p1); // přední
+            AddTriangle(p1, p4, p5);
+
+            AddTriangle(p1, p5, p2); // pravá
+            AddTriangle(p2, p5, p6);
+
+            AddTriangle(p2, p6, p3); // zadní
+            AddTriangle(p3, p6, p7);
+
+            AddTriangle(p3, p7, p0); // levá
+            AddTriangle(p0, p7, p4);
+        }
+
+        private void AddTriangle(Vector3 v1, Vector3 v2, Vector3 v3)
+        {
+            int i = Vertices.Count;
+            Vertices.Add(new Vertex(v1));
+            Vertices.Add(new Vertex(v2));
+            Vertices.Add(new Vertex(v3));
+            Triangles.Add(new Triangle(i, i + 1, i + 2));
         }
     }
 }

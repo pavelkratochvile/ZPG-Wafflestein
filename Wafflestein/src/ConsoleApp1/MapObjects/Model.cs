@@ -27,7 +27,8 @@ namespace ConsoleApp1.MapObjects
         public bool Changed { get; set; } = true;
         
         public Vector3 position = new Vector3(0, 0, 0);
-        
+        public int TILE_SIZE = 2;   
+
         float startTime;
         float cutoff = 0.9763f;
 
@@ -120,7 +121,7 @@ namespace ConsoleApp1.MapObjects
             Shader.SetUniform("hasTeleported", hasTeleported);
             Shader.SetUniform("lightOn", light.lightOn);
             Shader.SetUniform("cameraPosWorld", cp);
-            Shader.SetUniform("lightPosWorld", new Vector3(cp.X, 1.05f, cp.Z));
+            Shader.SetUniform("lightPosWorld", new Vector3(cp.X, cp.Y + 0.35f, cp.Z));
             Shader.SetUniform("lightDirWorld", cameraDirection);
             Shader.SetUniform("inerCutOff", light.inerCutOff);
             Shader.SetUniform("outerCutOff", light.outerCutOff);
@@ -166,6 +167,38 @@ namespace ConsoleApp1.MapObjects
             GL.LineWidth(5);
             GL.PolygonMode(TriangleFace.FrontAndBack, PolygonMode.Fill);
             GL.DrawElements(PrimitiveType.Triangles, 3 * Triangles.Count, DrawElementsType.UnsignedInt, nint.Zero);
+        }
+        public void countNormals()
+        {
+            for (int i = 0; i < Vertices.Count; i++)
+            {
+                Vertices[i].normal = new Vector3(0, 0, 0);
+            }
+
+            for (int i = 0; i < Triangles.Count; i++)
+            {
+                int i1 = Triangles[i].I1;
+                int i2 = Triangles[i].I2;
+                int i3 = Triangles[i].I3;
+
+                Vector3 v1 = Vertices[i1].Position;
+                Vector3 v2 = Vertices[i2].Position;
+                Vector3 v3 = Vertices[i3].Position;
+
+                Vector3 u = v2 - v1;
+                Vector3 v = v3 - v1;
+                Vector3 normal = Vector3.Cross(u, v);
+                normal = normal.Normalized();
+
+                Vertices[i1].normal += normal;
+                Vertices[i2].normal += normal;
+                Vertices[i3].normal += normal;
+            }
+
+            for (int i = 0; i < Vertices.Count; i++)
+            {
+                Vertices[i].normal = Vertices[i].normal.Normalized();
+            }
         }
 
         bool disposed = false;

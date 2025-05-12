@@ -16,9 +16,13 @@ namespace ConsoleApp1
         public List<Teleport> Teleports = new List<Teleport>();
         public List<Block> DoorsHitboxes = new List<Block>();
         public List<Flat> Ground = new List<Flat>();
+        public List<Ceiling> Ceiling = new List<Ceiling>();
+        public List<Hole> Holes = new List<Hole>();
+
         public Map Map = new Map();
         public int depth;
         public float height = 3;
+        public float bottomColideBox = 0.7f;
 
         public Floor(String filename, int depth)
         {
