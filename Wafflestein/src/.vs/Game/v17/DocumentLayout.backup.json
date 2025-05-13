@@ -7,16 +7,28 @@
       "RelativeMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\pavel\\onedrive\\dokumenty\\zpg\\zpg-wafflestein\\wafflestein\\src\\consoleapp1\\cameras\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\cameras\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\pavel\\onedrive\\dokumenty\\zpg\\zpg-wafflestein\\wafflestein\\src\\consoleapp1\\maps\\map3.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\maps\\map3.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\pavel\\onedrive\\dokumenty\\zpg\\zpg-wafflestein\\wafflestein\\src\\consoleapp1\\maps\\map1.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\maps\\map1.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\pavel\\onedrive\\dokumenty\\zpg\\zpg-wafflestein\\wafflestein\\src\\consoleapp1\\maps\\map4.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\maps\\map4.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\pavel\\onedrive\\dokumenty\\zpg\\zpg-wafflestein\\wafflestein\\src\\consoleapp1\\mapobjects\\hole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\mapobjects\\hole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\pavel\\onedrive\\dokumenty\\zpg\\zpg-wafflestein\\wafflestein\\src\\consoleapp1\\mapobjects\\cube.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\mapobjects\\cube.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\pavel\\onedrive\\dokumenty\\zpg\\zpg-wafflestein\\wafflestein\\src\\consoleapp1\\cameras\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\cameras\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\pavel\\onedrive\\dokumenty\\zpg\\zpg-wafflestein\\wafflestein\\src\\consoleapp1\\viewport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -51,14 +63,6 @@
       "RelativeMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\mapobjects\\flat.cs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\pavel\\onedrive\\dokumenty\\zpg\\zpg-wafflestein\\wafflestein\\src\\consoleapp1\\mapobjects\\hole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\mapobjects\\hole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\pavel\\onedrive\\dokumenty\\zpg\\zpg-wafflestein\\wafflestein\\src\\consoleapp1\\mapobjects\\cube.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\mapobjects\\cube.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\pavel\\onedrive\\dokumenty\\zpg\\zpg-wafflestein\\wafflestein\\src\\consoleapp1\\mapobjects\\object.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\mapobjects\\object.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -67,20 +71,12 @@
       "RelativeMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\consoleapp1.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\pavel\\onedrive\\dokumenty\\zpg\\zpg-wafflestein\\wafflestein\\src\\consoleapp1\\maps\\map4.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\maps\\map4.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\pavel\\onedrive\\dokumenty\\zpg\\zpg-wafflestein\\wafflestein\\src\\consoleapp1\\mapobjects\\teleport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\mapobjects\\teleport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\pavel\\onedrive\\dokumenty\\zpg\\zpg-wafflestein\\wafflestein\\src\\consoleapp1\\mapobjects\\ceiling.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\mapobjects\\ceiling.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\pavel\\onedrive\\dokumenty\\zpg\\zpg-wafflestein\\wafflestein\\src\\consoleapp1\\maps\\map2.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\maps\\map2.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{396CB5D3-F76F-40C7-A93E-637BF825AD65}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\pavel\\onedrive\\dokumenty\\zpg\\zpg-wafflestein\\wafflestein\\src\\consoleapp1\\light.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -110,7 +106,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "Material.cs",
               "DocumentMoniker": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\ZPG-Wafflestein\\Wafflestein\\src\\ConsoleApp1\\Material.cs",
               "RelativeDocumentMoniker": "ConsoleApp1\\Material.cs",
@@ -118,12 +114,11 @@
               "RelativeToolTip": "ConsoleApp1\\Material.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAIAywCAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-12T14:10:49.912Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-12T14:10:49.912Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "Flat.cs.cs",
               "DocumentMoniker": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\ZPG-Wafflestein\\Wafflestein\\src\\ConsoleApp1\\MapObjects\\Flat.cs.cs",
               "RelativeDocumentMoniker": "ConsoleApp1\\MapObjects\\Flat.cs.cs",
@@ -131,12 +126,11 @@
               "RelativeToolTip": "ConsoleApp1\\MapObjects\\Flat.cs.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T14:08:03.013Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-09T14:08:03.013Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 20,
               "Title": "Vector2.cs",
               "DocumentMoniker": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\ZPG-Wafflestein\\Wafflestein\\src\\ConsoleApp1\\Vector2.cs",
               "RelativeDocumentMoniker": "ConsoleApp1\\Vector2.cs",
@@ -148,7 +142,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 21,
               "Title": "Vertex.cs",
               "DocumentMoniker": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\ZPG-Wafflestein\\Wafflestein\\src\\ConsoleApp1\\Vertex.cs",
               "RelativeDocumentMoniker": "ConsoleApp1\\Vertex.cs",
@@ -160,7 +154,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 22,
               "Title": "VertexGL.cs",
               "DocumentMoniker": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\ZPG-Wafflestein\\Wafflestein\\src\\ConsoleApp1\\VertexGL.cs",
               "RelativeDocumentMoniker": "ConsoleApp1\\VertexGL.cs",
@@ -172,7 +166,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "Viewport.cs",
               "DocumentMoniker": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\ZPG-Wafflestein\\Wafflestein\\src\\ConsoleApp1\\Viewport.cs",
               "RelativeDocumentMoniker": "ConsoleApp1\\Viewport.cs",
@@ -180,12 +174,11 @@
               "RelativeToolTip": "ConsoleApp1\\Viewport.cs",
               "ViewState": "AgIAACEAAAAAAAAAAAA9wD4AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-09T14:07:06.404Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-09T14:07:06.404Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "Floor.cs",
               "DocumentMoniker": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\ZPG-Wafflestein\\Wafflestein\\src\\ConsoleApp1\\Floor.cs",
               "RelativeDocumentMoniker": "ConsoleApp1\\Floor.cs",
@@ -193,25 +186,24 @@
               "RelativeToolTip": "ConsoleApp1\\Floor.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwBwAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-30T10:48:58.844Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-30T10:48:58.844Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "map3.txt",
               "DocumentMoniker": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\ZPG-Wafflestein\\Wafflestein\\src\\ConsoleApp1\\Maps\\map3.txt",
               "RelativeDocumentMoniker": "ConsoleApp1\\Maps\\map3.txt",
               "ToolTip": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\ZPG-Wafflestein\\Wafflestein\\src\\ConsoleApp1\\Maps\\map3.txt",
               "RelativeToolTip": "ConsoleApp1\\Maps\\map3.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
               "WhenOpened": "2025-04-30T10:13:10.471Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "SecretDoors.cs",
               "DocumentMoniker": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\ZPG-Wafflestein\\Wafflestein\\src\\ConsoleApp1\\MapObjects\\SecretDoors.cs",
               "RelativeDocumentMoniker": "ConsoleApp1\\MapObjects\\SecretDoors.cs",
@@ -219,8 +211,7 @@
               "RelativeToolTip": "ConsoleApp1\\MapObjects\\SecretDoors.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T06:28:29.46Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-24T06:28:29.46Z"
             },
             {
               "$type": "Document",
@@ -230,51 +221,51 @@
               "RelativeDocumentMoniker": "ConsoleApp1\\Program.cs",
               "ToolTip": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\ZPG-Wafflestein\\Wafflestein\\src\\ConsoleApp1\\Program.cs",
               "RelativeToolTip": "ConsoleApp1\\Program.cs",
-              "ViewState": "AgIAANkBAAAAAAAAAAArwOwBAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAAGkAAAAAAAAAAAA+wIEAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-03T12:18:16.418Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "map1.txt",
               "DocumentMoniker": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\ZPG-Wafflestein\\Wafflestein\\src\\ConsoleApp1\\Maps\\map1.txt",
               "RelativeDocumentMoniker": "ConsoleApp1\\Maps\\map1.txt",
               "ToolTip": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\ZPG-Wafflestein\\Wafflestein\\src\\ConsoleApp1\\Maps\\map1.txt",
               "RelativeToolTip": "ConsoleApp1\\Maps\\map1.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
               "WhenOpened": "2025-04-24T06:17:51.956Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 3,
               "Title": "map4.txt",
               "DocumentMoniker": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\ZPG-Wafflestein\\Wafflestein\\src\\ConsoleApp1\\Maps\\map4.txt",
               "RelativeDocumentMoniker": "ConsoleApp1\\Maps\\map4.txt",
               "ToolTip": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\ZPG-Wafflestein\\Wafflestein\\src\\ConsoleApp1\\Maps\\map4.txt",
               "RelativeToolTip": "ConsoleApp1\\Maps\\map4.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-05-12T11:43:11.011Z"
+              "WhenOpened": "2025-05-12T11:43:11.011Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "ConsoleApp1",
               "DocumentMoniker": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\ZPG-Wafflestein\\Wafflestein\\src\\ConsoleApp1\\ConsoleApp1.csproj",
               "RelativeDocumentMoniker": "ConsoleApp1\\ConsoleApp1.csproj",
               "ToolTip": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\ZPG-Wafflestein\\Wafflestein\\src\\ConsoleApp1\\ConsoleApp1.csproj",
               "RelativeToolTip": "ConsoleApp1\\ConsoleApp1.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-12T11:47:01.515Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-12T11:47:01.515Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "Map.cs",
               "DocumentMoniker": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\ZPG-Wafflestein\\Wafflestein\\src\\ConsoleApp1\\Map.cs",
               "RelativeDocumentMoniker": "ConsoleApp1\\Map.cs",
@@ -282,12 +273,11 @@
               "RelativeToolTip": "ConsoleApp1\\Map.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T06:20:43.486Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-24T06:20:43.486Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "Doors.cs",
               "DocumentMoniker": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\ZPG-Wafflestein\\Wafflestein\\src\\ConsoleApp1\\MapObjects\\Doors.cs",
               "RelativeDocumentMoniker": "ConsoleApp1\\MapObjects\\Doors.cs",
@@ -295,25 +285,24 @@
               "RelativeToolTip": "ConsoleApp1\\MapObjects\\Doors.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAA6wAoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T05:44:41.317Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-24T05:44:41.317Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 5,
               "Title": "Cube.cs",
               "DocumentMoniker": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\ZPG-Wafflestein\\Wafflestein\\src\\ConsoleApp1\\MapObjects\\Cube.cs",
               "RelativeDocumentMoniker": "ConsoleApp1\\MapObjects\\Cube.cs",
               "ToolTip": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\ZPG-Wafflestein\\Wafflestein\\src\\ConsoleApp1\\MapObjects\\Cube.cs",
               "RelativeToolTip": "ConsoleApp1\\MapObjects\\Cube.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAAAEAAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABYAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-17T13:49:02.82Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "Object.cs",
               "DocumentMoniker": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\ZPG-Wafflestein\\Wafflestein\\src\\ConsoleApp1\\MapObjects\\Object.cs",
               "RelativeDocumentMoniker": "ConsoleApp1\\MapObjects\\Object.cs",
@@ -321,37 +310,24 @@
               "RelativeToolTip": "ConsoleApp1\\MapObjects\\Object.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEYAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T15:21:10.894Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-07T15:21:10.894Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "map2.txt",
-              "DocumentMoniker": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\ZPG-Wafflestein\\Wafflestein\\src\\ConsoleApp1\\Maps\\map2.txt",
-              "RelativeDocumentMoniker": "ConsoleApp1\\Maps\\map2.txt",
-              "ToolTip": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\ZPG-Wafflestein\\Wafflestein\\src\\ConsoleApp1\\Maps\\map2.txt",
-              "RelativeToolTip": "ConsoleApp1\\Maps\\map2.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-04-06T13:49:18.463Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 4,
               "Title": "Hole.cs",
               "DocumentMoniker": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\ZPG-Wafflestein\\Wafflestein\\src\\ConsoleApp1\\MapObjects\\Hole.cs",
               "RelativeDocumentMoniker": "ConsoleApp1\\MapObjects\\Hole.cs",
               "ToolTip": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\ZPG-Wafflestein\\Wafflestein\\src\\ConsoleApp1\\MapObjects\\Hole.cs",
               "RelativeToolTip": "ConsoleApp1\\MapObjects\\Hole.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBQAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-10T12:15:57.086Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "Camera.cs",
               "DocumentMoniker": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\ZPG-Wafflestein\\Wafflestein\\src\\ConsoleApp1\\Cameras\\Camera.cs",
               "RelativeDocumentMoniker": "ConsoleApp1\\Cameras\\Camera.cs",
@@ -359,12 +335,11 @@
               "RelativeToolTip": "ConsoleApp1\\Cameras\\Camera.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAA9wDUAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T12:18:22.347Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-03T12:18:22.347Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "Model.cs",
               "DocumentMoniker": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\ZPG-Wafflestein\\Wafflestein\\src\\ConsoleApp1\\MapObjects\\Model.cs",
               "RelativeDocumentMoniker": "ConsoleApp1\\MapObjects\\Model.cs",
@@ -372,8 +347,7 @@
               "RelativeToolTip": "ConsoleApp1\\MapObjects\\Model.cs",
               "ViewState": "AgIAAGcAAAAAAAAAAAAwwIMAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T15:08:07.553Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-03T15:08:07.553Z"
             },
             {
               "$type": "Document",
@@ -401,7 +375,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 19,
               "Title": "Light.cs",
               "DocumentMoniker": "C:\\Users\\pavel\\OneDrive\\Dokumenty\\ZPG\\ZPG-Wafflestein\\Wafflestein\\src\\ConsoleApp1\\Light.cs",
               "RelativeDocumentMoniker": "ConsoleApp1\\Light.cs",

@@ -52,6 +52,7 @@ namespace ConsoleApp1
             ;
             Camera = new Camera(Viewport);
             this.CursorState = CursorState.Grabbed;
+            this.WindowState = WindowState.Fullscreen;
             MouseWheel += OnMouseWheel;
 
             Shader shader = new Shader("Shaders/Basic.vert", "Shaders/Basic.frag");
@@ -64,6 +65,7 @@ namespace ConsoleApp1
                 GenerateMap(shader, Floors[i]);
             }
             curentFloor = Floors[0];
+            
         }
 
         protected override void OnUpdateFrame(FrameEventArgs args)
@@ -74,7 +76,7 @@ namespace ConsoleApp1
         protected override void OnRenderFrame(FrameEventArgs args)
         {
             float deltaTime = (float)args.Time;
-            this.Title = curentFloor.depth.ToString();
+            this.Title = fps.ToString();
             CountFPS();
             MakeCurrent();
             GetMovingVector();
@@ -119,7 +121,8 @@ namespace ConsoleApp1
         private void ChangeFloor()
         {
             int index = Floors.IndexOf(curentFloor) + 1;
-            
+            float posY = -Camera.y;
+
             if (standsInHole())
             {
                 curentFloor = Floors[index];
@@ -451,6 +454,10 @@ namespace ConsoleApp1
             foreach (Teleport tp in floor.Teleports)
             {
                 tp.Draw(Camera, light, Camera.hasTeleported, beforeTP, afterTP);
+            }
+            foreach (Hole hole in floor.Holes)
+            {
+                hole.Draw(Camera, light, Camera.hasTeleported, beforeTP, afterTP);
             }
         }
         public void GenerateMap(Shader shader, Floor floor)

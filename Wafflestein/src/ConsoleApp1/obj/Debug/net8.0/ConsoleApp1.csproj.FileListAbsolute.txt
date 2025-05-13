@@ -178,7 +178,6 @@ C:\Users\pavel\OneDrive\Dokumenty\ZPG\FinalGame\Wafflestein\src\ConsoleApp1\obj\
 C:\Users\pavel\OneDrive\Dokumenty\ZPG\FinalGame\Wafflestein\src\ConsoleApp1\obj\Debug\net8.0\ref\ConsoleApp1.dll
 C:\Users\pavel\OneDrive\Dokumenty\ZPG\ZPG-Wafflestein\Wafflestein\src\ConsoleApp1\bin\Debug\net8.0\ConsoleApp1.exe
 C:\Users\pavel\OneDrive\Dokumenty\ZPG\ZPG-Wafflestein\Wafflestein\src\ConsoleApp1\bin\Debug\net8.0\Maps\map1.txt
-C:\Users\pavel\OneDrive\Dokumenty\ZPG\ZPG-Wafflestein\Wafflestein\src\ConsoleApp1\bin\Debug\net8.0\Maps\map2.txt
 C:\Users\pavel\OneDrive\Dokumenty\ZPG\ZPG-Wafflestein\Wafflestein\src\ConsoleApp1\bin\Debug\net8.0\Objects\Flashlight.obj
 C:\Users\pavel\OneDrive\Dokumenty\ZPG\ZPG-Wafflestein\Wafflestein\src\ConsoleApp1\bin\Debug\net8.0\Objects\sphere.obj
 C:\Users\pavel\OneDrive\Dokumenty\ZPG\ZPG-Wafflestein\Wafflestein\src\ConsoleApp1\bin\Debug\net8.0\Objects\untitled.obj

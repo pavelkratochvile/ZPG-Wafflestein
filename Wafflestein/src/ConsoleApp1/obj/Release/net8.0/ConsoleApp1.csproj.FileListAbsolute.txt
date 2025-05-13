@@ -43,7 +43,6 @@ C:\Users\pavel\OneDrive\Dokumenty\Wafflestein\src\ConsoleApp1\obj\Release\net8.0
 C:\Users\pavel\OneDrive\Dokumenty\Wafflestein\src\ConsoleApp1\obj\Release\net8.0\ref\ConsoleApp1.dll
 C:\Users\pavel\OneDrive\Dokumenty\ZPG\ZPG-Wafflestein\Wafflestein\src\ConsoleApp1\bin\Release\net8.0\ConsoleApp1.exe
 C:\Users\pavel\OneDrive\Dokumenty\ZPG\ZPG-Wafflestein\Wafflestein\src\ConsoleApp1\bin\Release\net8.0\Maps\map1.txt
-C:\Users\pavel\OneDrive\Dokumenty\ZPG\ZPG-Wafflestein\Wafflestein\src\ConsoleApp1\bin\Release\net8.0\Maps\map2.txt
 C:\Users\pavel\OneDrive\Dokumenty\ZPG\ZPG-Wafflestein\Wafflestein\src\ConsoleApp1\bin\Release\net8.0\Maps\map3.txt
 C:\Users\pavel\OneDrive\Dokumenty\ZPG\ZPG-Wafflestein\Wafflestein\src\ConsoleApp1\bin\Release\net8.0\Maps\map4.txt
 C:\Users\pavel\OneDrive\Dokumenty\ZPG\ZPG-Wafflestein\Wafflestein\src\ConsoleApp1\bin\Release\net8.0\Objects\Flashlight.obj
