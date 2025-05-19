@@ -22,19 +22,17 @@ namespace ConsoleApp1
     public class MyGameWindow : GameWindow
     {
         public List<Floor> Floors = new List<Floor>();
+        Queue<DateTime> frames = new Queue<DateTime>();
         public Floor curentFloor;
         Light light = new Light(new Vector3(10, 10, 10), false);
 
-        private float speed = 5f;
+        private float speed = 1.4f;
         private float doorspeed = 1f;
         private double[] movingVector = new double[] { 0, 0 };
         private ViewPort Viewport { get; set; }
         private Camera Camera { get; set; }
 
         private Stopwatch stopwatch = new Stopwatch();
-        private int frameCount = 0;
-        private double lastTime = 0;
-        private double fps = 0;
 
 
 
@@ -52,7 +50,7 @@ namespace ConsoleApp1
             ;
             Camera = new Camera(Viewport);
             this.CursorState = CursorState.Grabbed;
-            this.WindowState = WindowState.Fullscreen;
+            this.WindowState = WindowState.Maximized;
             MouseWheel += OnMouseWheel;
 
             Shader shader = new Shader("Shaders/Basic.vert", "Shaders/Basic.frag");
@@ -75,8 +73,10 @@ namespace ConsoleApp1
 
         protected override void OnRenderFrame(FrameEventArgs args)
         {
+            frames.Enqueue(DateTime.Now);
             float deltaTime = (float)args.Time;
-            this.Title = fps.ToString();
+            this.Title = frames.Count.ToString();
+            frames.Enqueue(DateTime.Now);
             CountFPS();
             MakeCurrent();
             GetMovingVector();
@@ -196,14 +196,17 @@ namespace ConsoleApp1
 
         public void CountFPS()
         {
-            frameCount++;
-            double currentTime = stopwatch.Elapsed.TotalSeconds;
-
-            if(currentTime - lastTime >= 1)
+            while (frames.Count > 0)
             {
-                fps = frameCount / (currentTime - lastTime);
-                frameCount = 0;
-                lastTime = currentTime;
+                TimeSpan timeSpan = DateTime.Now - frames.Peek();
+                if (timeSpan.TotalSeconds > 1)
+                {
+                    frames.Dequeue();
+                }
+                else
+                {
+                    break;
+                }
             }
         }
         protected override void OnMouseWheel(MouseWheelEventArgs e)
@@ -245,14 +248,14 @@ namespace ConsoleApp1
                 if (distance < radius && KeyboardState.IsKeyDown(Keys.E))
                 {
                     
-                    if(floor.Doors[i].isOpening == false && !floor.Doors[i].Changed)
+                    if(floor.Doors[i].isOpening == false && !floor.Doors[i].isChanged)
                     {
                         floor.Doors[i].GetNearestWall(floor.Walls);
                     }
                 }
                 if (floor.Doors[i].isOpening)
                 {
-                    DoorMove(floor.Doors[i], deltaTime);
+                    DoorMove(floor.Doors[i], deltaTime, 1);
                 }
             }
 
@@ -260,9 +263,9 @@ namespace ConsoleApp1
             for (int i = 0; i < floor.Doors.Count; i++)
             {
                 float distance = (float)Math.Sqrt((-Camera.x - floor.Doors[i].defaultposition.X) * (-Camera.x - floor.Doors[i].defaultposition.X) + (-Camera.z - floor.Doors[i].defaultposition.Z) * (-Camera.z - floor.Doors[i].defaultposition.Z));
-                if (distance < radius && distance > Math.Sqrt(2 * Math.Pow(floor.Doors[i].TILE_SIZE / 2, 2)) && KeyboardState.IsKeyDown(Keys.Q) && floor.Doors[i].Changed == true)
+                if (distance < radius && distance > Math.Sqrt(2 * Math.Pow(floor.Doors[i].TILE_SIZE / 2, 2)) && KeyboardState.IsKeyDown(Keys.Q) && floor.Doors[i].isChanged)
                 {
-                    floor.Doors[i].Changed = false;
+                    floor.Doors[i].isChanged = false;
                     if (floor.Doors[i].isClosing == false)
                     {
                         floor.Doors[i].targetPosition = floor.Doors[i].defaultposition;
@@ -271,7 +274,7 @@ namespace ConsoleApp1
                 }
                 if (floor.Doors[i].isClosing)
                 {
-                    DoorMove(floor.Doors[i], deltaTime);
+                    DoorMove(floor.Doors[i], deltaTime, 0);
                 }
             }
         }
@@ -286,14 +289,14 @@ namespace ConsoleApp1
                 if (distance < radius && KeyboardState.IsKeyDown(Keys.E))
                 {
 
-                    if (floor.secretDoors[i].isOpening == false && !floor.secretDoors[i].Changed)
+                    if (floor.secretDoors[i].isOpening == false && !floor.secretDoors[i].isChanged)
                     {
                         floor.secretDoors[i].GetNearestWall(floor.Walls);
                     }
                 }
                 if (floor.secretDoors[i].isOpening)
                 {
-                    DoorMove(floor.secretDoors[i], deltaTime);
+                    DoorMove(floor.secretDoors[i], deltaTime, 1);
                 }
             }
 
@@ -301,9 +304,9 @@ namespace ConsoleApp1
             for (int i = 0; i < floor.secretDoors.Count; i++)
             {
                 float distance = (float)Math.Sqrt((-Camera.x - floor.secretDoors[i].defaultposition.X) * (-Camera.x - floor.secretDoors[i].defaultposition.X) + (-Camera.z - floor.secretDoors[i].defaultposition.Z) * (-Camera.z - floor.secretDoors[i].defaultposition.Z));
-                if (distance < radius && distance > Math.Sqrt(2 * Math.Pow(floor.secretDoors[i].TILE_SIZE / 2, 2)) && KeyboardState.IsKeyDown(Keys.Q) && floor.secretDoors[i].Changed == true)
+                if (distance < radius && distance > Math.Sqrt(2 * Math.Pow(floor.secretDoors[i].TILE_SIZE / 2, 2)) && KeyboardState.IsKeyDown(Keys.Q) && floor.secretDoors[i].isChanged == true)
                 {
-                    floor.secretDoors[i].Changed = false;
+                    floor.secretDoors[i].isChanged = false;
                     if (floor.secretDoors[i].isClosing == false)
                     {
                         floor.secretDoors[i].targetPosition = floor.secretDoors[i].defaultposition;
@@ -312,12 +315,12 @@ namespace ConsoleApp1
                 }
                 if (floor.secretDoors[i].isClosing) 
                 {
-                    DoorMove(floor.secretDoors[i], deltaTime);
+                    DoorMove(floor.secretDoors[i], deltaTime, 0);
                 }
             }
         }
 
-        public void DoorMove(Block doors, float deltaTime)
+        public void DoorMove(Block doors, float deltaTime, int state)
         {
             float movement = deltaTime * doorspeed;
 
@@ -325,6 +328,8 @@ namespace ConsoleApp1
             Vector3 step = direction * movement;
             if (Vector3.Distance(doors.position, doors.targetPosition) <= movement)
             {
+                if(state == 1) doors.isChanged = true;
+                if (state == 0) doors.isChanged = false;
                 doors.position = doors.targetPosition;
                 doors.isClosing = false;
                 doors.isOpening = false;
@@ -605,7 +610,7 @@ namespace ConsoleApp1
             if (args.Length == 0)
             {
                 Console.WriteLine("Nebyly zadány žádné mapy.");
-                maps = new string[] { "map1.txt", "map3.txt", "map4.txt"};
+                maps = new string[] { "map1_1.txt", "map1_2.txt", "map1_3.txt" };
             }
             else
             {

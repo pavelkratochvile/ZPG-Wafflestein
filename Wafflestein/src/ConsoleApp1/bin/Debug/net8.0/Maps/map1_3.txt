@@ -1,0 +1,8 @@
+10x7
+xxxxxxxxxx
+x        x
+x       xx
+x      x<x
+x        x
+x        x
+xxxxxxxxxx

@@ -1,8 +1,7 @@
 {
   "profiles": {
     "ConsoleApp1": {
-      "commandName": "Project",
-      "commandLineArgs": "map1.txt map3.txt map4.txt"
+      "commandName": "Project"
     }
   }
 }

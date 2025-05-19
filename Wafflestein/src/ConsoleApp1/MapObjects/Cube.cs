@@ -12,6 +12,7 @@ namespace ConsoleApp1.MapObjects
     {
         public bool isOpening = false;
         public bool isClosing = false;
+        public bool isChanged = false;
         public Vector3 targetPosition = new Vector3(0, 0, 0);
         public Vector3 defaultposition = new Vector3(0, 0, 0);
         public bool isOpened = false;
